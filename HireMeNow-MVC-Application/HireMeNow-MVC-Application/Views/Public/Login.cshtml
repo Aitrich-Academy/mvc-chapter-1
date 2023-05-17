@@ -1,0 +1,64 @@
+﻿@model HireMeNow_MVC_Application.Models.User
+@{
+    Layout = "_PubLayout";
+}
+<div class="container">
+    <div class="leftContainer">
+        <div class="logo">
+            <img src="~/publicassets/images/logo.png" />
+           
+        </div>
+        <h1 style="position: absolute;width: 332px;height: 72px;margin-left: 135px;margin-top: 120px; font-family: 'Roboto';font-style: normal;font-weight: 700;
+            font-size: 28px;line-height: 42px;text-align: center;color: #000000;">
+            Welcome Back
+        </h1>
+        <a href="">
+            <div class="loginWithGoogle">
+                <img src="~/publicassets/images/Login with google shape.png" style="margin-left: 105px;width: 380px;margin-top: 180px;position: absolute;">
+                <img src="~/publicassets/images/Google symbol.png" style="position: absolute;margin-left: 150px;margin-top: 200px;width: 25px;">
+                <h2><a href="#" style="text-decoration: none;">Log in with Google</a></h2>
+
+            </div>
+        </a>
+
+
+        <h2 style="margin-left: 180px;margin-top: 270px; position: absolute;width: 249px;height: 20px;font-family: 'Roboto';font-style: normal;font-weight: 700;font-size: 13px;line-height: 19px;text-align: center;color: #C5BEBE;">OR LOGIN WITH E-MAIL</h2>
+        <form method="post"> <div class="row" style="align-items: center;margin-top: 290px;position: absolute;width: 100%;font-family: 'Roboto';font-style: normal;font-weight: 700;font-size: 13px;/* line-height: 19px; */text-align: center;color: #f94e4e;">
+            <div asp-validation-summary="All"></div>
+           </div>
+          <div style="margin-left: 380px;margin-top: 275.5px; box-sizing: border-box;position: absolute;width: 100px;height: 0px;border: 3px solid #F5F5F5;">
+             </div>
+       
+           
+           
+            <input asp-for="Email" type="email" class="inpTxt" placeholder="   Your Email" style="font-weight: bolder;color: #000000;" required>
+            <span asp-validation-for="Email"></span>
+            <input   asp-for="Password" type="password" class="inpPwd" placeholder="   Your Password" style="position: relative; font-weight: bolder;color: #000000;">
+            <span asp-validation-for="Password"></span>
+            <input type="checkbox" class="checkbox">
+            <h2 style="margin-left: 130px;margin-top: 14px; position: absolute;font-size: 15px;">Keep me logged in</h2>
+            <input type="submit" style=" position: absolute;
+                margin-top: 480px;
+                margin-left: -375px;
+                width: 375px;
+                height: 40px;
+                background-color: #64B7F5;
+                border: 1px solid rgba(0, 0, 0, 0.31);
+                font-weight: bolder;
+                color: #F5F5F5;" value="Login"></input>
+   
+
+        <div class="p1">
+            <p>Don't have an account yet ?<a href="public/Registration"> Sign up</a> 
+                </p>
+        </div>
+        <div class="p1">
+            <p>@if (TempData["msg"] != null) { @TempData["msg"] }</p>
+        </div></form>
+    </div>
+    
+       
+
+    <div class="rightContainer">
+        <img src="~/publicassets/images/LoginPageImg.png" width="650px" height="600px">
+    </div>

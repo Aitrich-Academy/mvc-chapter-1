@@ -1,6 +1,7 @@
 ﻿using HireMeNow_MVC_Application.Interfaces;
 using HireMeNow_MVC_Application.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireMeNow_MVC_Application.Controllers
@@ -12,17 +13,72 @@ namespace HireMeNow_MVC_Application.Controllers
         {
             _publicService= publicService;
         }
-        // GET: PublicController
-        public ActionResult Index()
+ 
+
+
+        public IActionResult Registration()
+        {
+            return View();
+		}
+
+
+        //seeker registration
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Registration(User user)
+        {
+            try
+            {
+                _publicService.Register(user);
+
+                TempData["message"] = "added successfully";
+
+                return RedirectToAction("Login");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult Login()
         {
             return View();
         }
 
-        // GET: PublicController/Details/5
-        public ActionResult Details(int id)
+        // POST: PublicController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(string email,string password)
         {
-            return View();
+            try
+
+            {
+               var result= _publicService.LoginJobSeeker(email,password);
+                if (result != null)
+                {
+                    TempData["msg"] = "logged successfully";
+                    //HttpContext.Session.SetInt32("UserId",result.Id);
+                    return View("Registration");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return View();
+                }
+              
+            }
+            catch
+            {
+                return View();
+            }
         }
+
+
+
+
+
+
+
 
         // GET: PublicController/Create
         public ActionResult Register()
@@ -38,7 +94,7 @@ namespace HireMeNow_MVC_Application.Controllers
             try
             {
                 _publicService.Register(collection);
-                return RedirectToAction(nameof(Index));
+                return View();
             }
             catch
             {
@@ -47,25 +103,7 @@ namespace HireMeNow_MVC_Application.Controllers
         }
 
         // GET: PublicController/Edit/5
-        public ActionResult Login()
-        {
-            return View();
-        }
 
-        // POST: PublicController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: PublicController/Delete/5
         public ActionResult Delete(int id)

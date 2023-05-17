@@ -32,7 +32,8 @@ namespace HireMeNow_MVC_Application.Repositories
         public bool register(User user)
         {
             user.Id =new Guid();
-          
+            user.Role = Roles.JobSeeker;
+
             if (users.Find(e => e.Email == user.Email) == null)
             {
                 users.Add(user);

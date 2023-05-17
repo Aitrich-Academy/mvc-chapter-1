@@ -1,0 +1,159 @@
+﻿@model HireMeNow_MVC_Application.Models.User
+
+@{
+    Layout = "_PubLayout";
+}
+
+
+
+<style>
+    .container {
+        max-width: 100%;
+    }
+
+    .reg-table {
+        border-bottom-right-radius: 70px;
+        border-top-right-radius: 70px;
+    }
+
+</style>
+
+
+<table width="100%" cellpadding="0" cellspacing="0" height="100%" style="
+">
+    <tbody>
+        <tr>
+            <td bgcolor="#E5E6EA" align="right" width="45%">
+                <br><br><br>
+                <table style="
+    margin-left: 30px;
+">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <img src="/publicassets/images/register img.png" height="655px" alt="registration">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br><br>
+            </td>
+            <td bgcolor="#64B7F5" width="60%">
+                <br><br><br>
+                <table bgcolor="white" class="reg-table" style="
+    margin-right: 30px;
+">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <aside>
+                                    <form method="post">
+                                        <table align="left" height="600px" cellspacing="20px" valign="top" cellpadding="20px">
+
+                                            <tr height="100px">
+                                                <td bgcolor="" align="left" colspan="2">
+                                                    <font size="6" face="DM Sans"> <b>Registration</b> </font>
+                                                    @* <div class="row">
+                                                    <div asp-validation-summary="All"></div>
+                                                    </div>*@
+                                                </td>
+
+                                            </tr>
+                                            <tr height="30px">
+                                                <td align="">
+                                                    <b>First Name</b>
+                                                    <br>
+                                                    <input asp-for="FirstName"  type="text" class="form-control" placeholder="Enter FirstName" id="fname" size="30" required="">
+                                                    <span asp-validation-for="UserId" class="text-danger"></span>
+                                                </td>
+                                                <td align="">
+                                                    <b>Last Name</b>
+                                                    <br>
+                                                    <input asp-for="LastName" type="text" class="form-control" placeholder="Enter Last Name" id="lname" size="30" required="">
+                                                    <span asp-validation-for="LastName"class="text-danger"></span>
+                                                </td>
+
+                                            </tr>
+                                            <tr height="30px">
+                                                <td align="">
+                                                    <b>Email</b>
+                                                    <br>
+                                                    <input asp-for="Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                    <span asp-validation-for="Email"class="text-danger"></span>
+                                                </td>
+                                                <td align="">
+                                                    <b>Phone number</b>
+                                                    <br>
+                                                    <input asp-for="Phone" type="text" class="form-control" pattern="^\d{10}$" placeholder="Enter Last Name" id="lname" size="30" required="">
+                                                    <span asp-validation-for="Phone"class="text-danger"></span>
+                                                </td>
+                                            </tr>
+                                            <tr height="30px">
+                                                <td align="">
+                                                    <b>Password</b>
+                                                    <br>
+                                                    <input asp-for="Password" type="password" class="form-control" placeholder="Enter FirstName" id="fname" size="30" required="">
+                                                    <span asp-validation-for="Password"class="text-danger"></span>
+                                                </td>
+                                                <td align="">
+                                                    <b>Confirm Password</b>
+                                                    <br>
+                                                    <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder=" Confirm Password" id="lname" size="30" required="">
+                                                    <span asp-validation-for="ConfirmPassword"class="text-danger"></span>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr height="30px">
+                                                <td colspan="2">
+                                                    <b>Gender</b> <br>
+                                                    <br>
+                                                    <b>
+                                                        <input class="form-check-input" type="radio" asp-for="Gender" value="male" id="male-radio" required>
+                                                        <label class="form-check-label" for="male-radio">Male</label>
+                                                        <input class="form-check-input" type="radio" asp-for="Gender" value="female" id="female-radio" required>
+                                                        <label class="form-check-label" for="female-radio">Female</label>
+                                                        <input class="form-check-input" type="radio" asp-for="Gender" value="other" id="other-radio" required>
+                                                        <label class="form-check-label" for="other-radio">Other</label>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" align="center">
+                                                    <input class="btn btn-outline-primary" type="submit" value="Register"></input> <br>
+                                                    <br>
+                                                    <font size="3" face="Roboto"> Already have an account?  </font> <a href="Login"><font color="49A1D3" size="3" face="Roboto"> Sign in </font></a>
+                                                </td> <td colspan="2" align="center">
+                                                    @if (TempData["message"] != null)
+                                                    {
+                                                        @TempData["message"]
+                                                    }
+                                                </td>
+                                            </tr>
+
+
+
+                                        </table>
+                                    </form>
+
+                                </aside>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br><br>
+            </td>
+
+
+        </tr>
+
+
+    </tbody>
+</table>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
