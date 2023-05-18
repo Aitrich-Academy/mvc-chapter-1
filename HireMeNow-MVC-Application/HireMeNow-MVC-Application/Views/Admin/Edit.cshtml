@@ -1,0 +1,131 @@
+﻿@model HireMeNow_MVC_Application.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+
+     
+            <div class="col py-3">
+                <div class="row">
+               
+                    <nav class="navbar navbar-expand-lg navbar-light ">
+                        <div class="col-md-3">
+                            <img class="img-fluid px-3" src="~/adminimages/images/ic_menu.png">
+                            <a class="navbar-brand mx-auto px-3" href="#">Dashboard</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebar-div" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group rounded-pill  bg-light">
+                                <button type="button" class="btn ">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                                <div class="form-outline bg-light">
+                                    <input type="search"  id="form1" class="form-control bg-light border-0" placeholder="Search something here"  />
+                                </div>                                    
+                          </div>
+                        </div>
+                        <div class="col-md-2">
+                           
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="navbar-nav  mt-2 mt-lg-0">
+                                <li class="nav-item active">
+                                    <img class="img-fluid"  src="~/adminimages/images/notification.png">
+                                </li>
+                                <li class="nav-item">
+                                    <img class="img-fluid" src="~/adminimages/images/noti.png">
+                                </li>
+                                <li class="nav-item">
+                                    <img class="img-fluid" src="~/adminimages/images/profile.png">
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        <h4>Welcome, Admin</h4>
+                        <small class="text-muted">Tue, 07 June 2022</small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 py-3">
+                        <form>
+                            <div class="form-group col-md-4">
+                              <input type="email" class="form-control border-bottom" id="inputaccount"   placeholder="Account">
+                            </div>
+                         </form>
+                    </div>
+                </div>
+                <div class="row px-5 py-3">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 " id="innerform">
+                        <div class="row py-3">
+                            <div class="col-md-9">
+                                <img src="~/adminimages/images/profile-img.png" class="img-fluid"><small>Oda Dink</small>
+        
+                            </div>
+                            <div class="col-md-3">
+                                <form>
+                                    <div class="form-group ">
+                                        <button type="submit" id="update-new-picture" class="btn border-0">Update new picture</button>
+                                    </div>
+                                 </form>        
+                            </div>
+                        </div>
+                        <div class="row">
+                    <div class="col-md-1 py-3"></div>
+                    <div class="col-md-10 py-3">
+                        <form method="post">
+                            <div class="form-row px-5">
+                            <div class="form-group col-md-10  py-2">
+                                <label asp-for="FirstName">Full Name</label>
+                                <input asp-for="FirstName" class="form-control"  class="form-control" placeholder="Please enter your full name">
+                                  <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-10  py-2">
+                                <label asp-for="LastName">LastName</label>
+                                <input asp-for="LastName" class="form-control" id="inputPassword4" placeholder="Please enter your username">
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                            
+                            <div class="form-group col-md-10  py-2">
+                            <label asp-for="Email">Email</label>
+                            <input asp-for="Email" class="form-control" id="inputAddress" placeholder="Please enter your email">
+                             <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-10 py-2">
+                            <label asp-for="Phone">Phone No</label>
+                            <input asp-for="Phone" class="form-control" id="inputAddress2" placeholder="Please enter your phone number">
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                           </div>
+                                                       <input asp-for="Id" type="hidden">
+
+                              <div >
+                <input type="submit" value="Update Profile" class="btn px-5 py-2" />
+            </div>
+            <div class="form-group col-md-10 py-2">
+                            @if (TempData["messag"] != null)
+                            {
+                                @TempData["messag"]
+                            }
+                        </div>
+                            
+                        </form>
+                    </div>
+                    <div class="col-md-1 py-3"></div>
+                </div>
+                    </div>
+                    <div class="col-md-2"></div>
+            </div>
+        </div>
+  
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

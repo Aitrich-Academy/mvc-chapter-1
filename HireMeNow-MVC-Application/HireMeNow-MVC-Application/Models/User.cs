@@ -28,7 +28,7 @@ namespace HireMeNow_MVC_Application.Models
         public User() { }
         public User( string firstname, string lastname, string email, long phone, string password, Roles roles)
         {
-            Id = new Guid();
+            Id =  Guid.NewGuid();
             FirstName = firstname;
             LastName = lastname;
             Email = email;

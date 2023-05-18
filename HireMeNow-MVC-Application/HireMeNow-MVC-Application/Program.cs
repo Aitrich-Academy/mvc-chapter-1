@@ -1,14 +1,17 @@
 using HireMeNow_MVC_Application.Interfaces;
 using HireMeNow_MVC_Application.Managers;
 using HireMeNow_MVC_Application.Repositories;
+using HireMeNow_MVC_Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddSession();
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPublicService, PublicService>();
+
+builder.Services.AddScoped<IAdminService,AdminService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,7 +24,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 app.UseAuthorization();

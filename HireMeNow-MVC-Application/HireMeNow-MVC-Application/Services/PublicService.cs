@@ -31,6 +31,7 @@ namespace HireMeNow_MVC_Application.Managers
                 LoggedUser = userRepository.login(email, password);
                 if (LoggedUser.Email != null)
                 {
+                   
                     Console.WriteLine("Login successful!");
                     _isLogged = true;
                     Console.WriteLine("Welcome " + LoggedUser.FirstName);
@@ -65,7 +66,7 @@ namespace HireMeNow_MVC_Application.Managers
             }
             catch (Exception ex) { throw ex; }
         }
+      
 
-     
     }
 }
