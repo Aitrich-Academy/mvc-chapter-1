@@ -1,8 +1,47 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">            
+                <img src="~/home/images/main-img.png" class="img-fluid img1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="header ">
+                     
+            <nav class="navbar  navbar-expand-md sidebar navbar-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText">
+            <span class="navbar-toggler-icon "></span>
+            </button>
+           @* <div class="collapse  navbar-collapse sidebar " id="navbarText">*@
+                      @*  <nav class="navbar navbar-expand-sm ms-5 ">
+                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>*@
+                            <h1 class="h1 fs-1">HireMe Now!</h1>
+                            <div class="collapse navbar-collapse " id="navbarText">
+                                <ul class="nav navbar-nav  text-secondary h5 " >
+                                    <li class="active "><a href="#" class="text-black">Home</a></li>
+                                    <li><a href="#" class="text-black">Post A Job</a></li>
+                                    <li><a href="#" class="text-black">About</a></li>
+                                    <li><a href="#" class="text-black">Feature</a></li>
+                                </ul>                
+                                <ul class="nav navbar-nav ml-auto text-secondary h4 fw-bold">
+                                    <li ><a href="#">Login</a></li>
+                                    <li><a href="#">SignIn</a></li>                        
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>                
+                </div>
+            </div>    
+        </div>
+
+
+     </div>
+
