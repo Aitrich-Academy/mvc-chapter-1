@@ -49,5 +49,14 @@ namespace HireMeNow_MVC_Application.Controllers
             }
             return View();
         }
+        public IActionResult NewRegistrations()
+        {
+
+
+            return View();
+        }
     }
+ 
+    
 }
+
