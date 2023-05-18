@@ -6,9 +6,9 @@ namespace HireMeNow_MVC_Application.Interfaces
     {
         public User LoginJobSeeker(string email, string password);
         public bool Register(User newJobSeeker);
-       
-       
+
+
         //public void Logout();
-     
+
     }
 }

@@ -57,7 +57,7 @@ namespace HireMeNow_MVC_Application.Controllers
                 if (result != null)
                 {
                     TempData["msg"] = "logged successfully";
-                    //HttpContext.Session.SetInt32("UserId",result.Id);
+                    HttpContext.Session.SetString("UserId", result.Id.ToString());
                     return View("Registration");
                 }
                 else
