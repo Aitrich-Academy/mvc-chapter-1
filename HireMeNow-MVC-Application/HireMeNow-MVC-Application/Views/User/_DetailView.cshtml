@@ -1,0 +1,72 @@
+﻿@model HireMeNow_MVC_Application.Models.User
+
+<style>
+    .firstDiv{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
+</style>
+
+
+
+             <div>
+    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowEditDetailsView()" />
+    <div class="firstDiv">
+        @if (Model.Image==null)
+        {
+            <img src="~/publicassets/images/gray-user.png" width="100px" alt="" class="proImg" />
+        }
+        else
+        {
+            <img src="@Url.Content("~/Uploads/"+Model.Image)" width="100px" alt="" class="proImg">
+        }
+        
+        <font size="4" face="verdana" color="black" align="center">
+
+            <center>  <b> @Model?.FirstName </b> &nbsp;<b> @Model?.LastName</b> </center> 
+
+        </font>
+        <em>@Model.Designation</em> <br>
+    </div>
+                    
+
+                   @* <h3><img src="~/jobseekerassets/images/resume.png" width="25px" alt="Resume "> RESUME </h3>*@
+                    <font size="4" face="math" color="black" align="center">
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Email
+                        </i>
+                        <br>
+
+                        <i>
+                            <img src="~/jobseekerassets/images/phone.png" width="20px" alt="phone ">
+                            @Model?.Phone
+                        </i><br>
+                        <i>
+                            <img src="~/jobseekerassets/images/location.png" width="20px" alt="location ">  @Model?.Location
+                        </i><br>
+
+                    </font>
+                </div>
+                <div class="aboutMeDiv">
+
+
+                   
+
+                    <h4> <img src="~/jobseekerassets/images/user.png" width="25px"> About Me</h4>
+                   
+                    <font size="3" face="math" color="black" align="justify-content-center">
+
+
+                        <blockquote>
+            <div class="aboutMeContentDiv profileContent" id="aboutMeContentDiv">
+                                @Model?.About
+                            </div>
+                        </blockquote>
+                    </font>
+
+
+                </div>

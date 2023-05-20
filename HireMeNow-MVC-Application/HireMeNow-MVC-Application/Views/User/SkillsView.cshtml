@@ -1,0 +1,19 @@
+﻿@model IEnumerable<String>
+
+<img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddSkillsView()" />
+
+<h4 align="left">
+    <img src="~/jobseekerassets/images/graduation.png" width="25px"> Skills
+</h4>
+<blockquote>
+    <ul type="square" class="profileContent">
+        @foreach (var item in Model)
+        {
+            <li>@item </li>
+           
+        }
+
+    </ul>
+
+</blockquote>
+

@@ -1,0 +1,321 @@
+﻿@model HireMeNow_MVC_Application.Models.User
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
+}
+<style>
+    .personal-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .proImg {
+        margin-left: 25%;
+    }
+
+    .aboutMeDiv {
+        min-width: 420px;
+        padding: 35px;
+    }
+
+    .btnSaveChanges {
+        display: none;
+    }
+
+    .aboutMeTxtDiv {
+        min-width: 350px;
+        padding: 5px;
+        min-height: 150px;
+        display: none;
+        /*width: 401px;*/
+    }
+
+    .skillsDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .skill {
+        display: none;
+    }
+
+    .experienceDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .experience-form {
+        display: none;
+    }
+
+    .educationDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .education-form {
+        display: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+</style>
+<script>
+   
+    function editAbout() {
+
+        var div = document.getElementById("aboutMeTxtDiv");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnSaveChanges");
+        btnUpdate.classList.toggle("show");
+        var div2 = document.getElementById("aboutMeContentDiv");
+        div2.classList.toggle("hidden");
+
+
+    }
+    function ShowAddSkill() {
+        var div = document.getElementById("skillInput");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnAddSkill");
+        btnUpdate.classList.toggle("show");
+        //var div2 = document.getElementById("aboutMeContentDiv");
+        //div2.classList.toggle("hidden");
+    }
+
+    function ShowAddEducation() {
+        var div = document.getElementById("education-form");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnAddEducation");
+        btnUpdate.classList.toggle("show");
+        //var div2 = document.getElementById("aboutMeContentDiv");
+        //div2.classList.toggle("hidden");
+    }
+
+    function ShowAddExperience() {
+        var div = document.getElementById("experience-form");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnAddExperience");
+        btnUpdate.classList.toggle("show");
+
+    }
+    //function UpdateAboutMe(parameter) {
+
+    //    console.log("Parameter: " + parameter);
+
+    //    $.ajax({
+    //        url: '/Profile?handler=UpdateAboutMe',
+    //        type: 'POST',
+    //        data: { parameter: parameter },
+    //        success: function (result) {
+    //            console.log("Server response: " + result);
+    //            // You can update the UI or perform other actions based on the server response
+    //        },
+    //        error: function (error) {
+    //            console.log("An error occurred: " + error);
+    //        }
+    //    });
+    //}
+
+    function addSkill() {
+        var skillInput = $('#skillInput');
+        var skillList = $('#skillsList');
+        var skills = [];
+        var skill = skillInput.val();
+        if (skill.length > 0) {
+            skillList.append('<li>' + skill + '</li>');
+           // skillInput.val('');
+            //skills.push(skill);
+            //// Update the model's Skills list
+            //var skillsVal = $('#Skills').val() ;
+            //console.log("skills  " + skillsVal);
+           
+            //if (skillsVal != "") {
+            //    skills = JSON.parse(skillsVal);
+            //    console.log("skills2  " + skills2);
+            //}
+           
+            ////if (skill!="")
+            //    //skills.push(skill);
+            //$('#Skills').val(skills);
+
+            // Submit the form to update the model in the server
+            $('#profileForm').submit();
+        }
+    }
+
+</script>
+
+<form method="post" id="profileForm">
+    <div id="content" class="p-4 p-md-5">
+        <div class="row">
+            <div class="col-md-6 personal-details">
+                <div>
+
+
+                    <font size="4" face="verdana" color="black" align="center">
+
+                        <img src="~/jobseekerassets/images/leslie.png" width="100px" alt="" class="proImg"><br>
+                        @*<input type="file" name="profileImage" />*@
+
+                        <center>  <b> @Model?.FirstName </b> &nbsp; &nbsp;<b> @Model?.LastName</b> </center> <br>
+
+                    </font>
+                    <em>Java Developer</em> <br>
+
+                    <h3><img src="~/jobseekerassets/images/resume.png" width="25px" alt="Resume "> RESUME </h3>
+                    <font size="4" face="math" color="black" align="center">
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Email
+                        </i>
+                        <br>
+
+                        <i>
+                            <img src="~/jobseekerassets/images/phone.png" width="20px" alt="phone ">
+                            @Model?.Phone
+                        </i><br>
+                        <i>
+                            <img src="~/jobseekerassets/images/location.png" width="20px" alt="location ">  @Model?.Location
+                        </i><br>
+
+                    </font>
+                </div>
+                <div class="aboutMeDiv">
+
+
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="editAbout()" />
+
+                    <h4> <img src="~/jobseekerassets/images/user.png" width="25px"> About Me</h4>
+                    <input type="submit" class="btn btn-sm btn-primary btnSaveChanges" id="btnSaveChanges" value="Save Changes" />
+                    <font size="3" face="math" color="black" align="justify-content-center">
+
+
+                        <blockquote>
+                            <textarea rows="5" id="aboutMeTxtDiv" class="aboutMeTxtDiv" placeholder="About Me..." asp-for="About">   @Model?.About </textarea>
+                            <div class="aboutMeContentDiv" id="aboutMeContentDiv">
+                                @Model?.About
+                            </div>
+                        </blockquote>
+                    </font>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="skillsDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddSkill()" />
+                    <h4 align="left"><img src="~/jobseekerassets/images/bulb.png" width="25px"> Skills</h4>
+                    <blockquote>
+                        @if (Model.Skills.Count>0)
+                        {
+                            <input type="hidden" id="Skills"  value="@Json.Serialize(Model.Skills)" />
+                        }
+                        else
+                        {
+                            <input type="hidden" id="Skills" value=""/>
+                        }
+                       
+                        <ul id="skillsList">
+                            @foreach (var item in Model?.Skills)
+                            {
+                                <li>@item </li>
+                                @*  <li>Languages : Java ,C ,C++ ,Asp.Net </li>
+                            <li>IDE : VS code , Visual Studio </li>*@
+                            }
+                        </ul>
+                        <input type="text" class="form-control skill" id="skillInput" asp-for="Skill" />
+                        <input type="submit" class="btn btn-sm btn-primary btnSaveChanges" id="btnAddSkill" value="Add Skill"  />
+
+                    </blockquote>
+                </div>
+
+                <div class="educationDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddEducation()" />
+
+                    <h4 align="left">
+                        <img src="~/jobseekerassets/images/graduation.png" width="25px"> Education
+                    </h4>
+                    <blockquote>
+                        <ul type="square">
+                            @foreach (var item in Model?.Educations)
+                            {
+                                <li><b>@item.Course </b></li>
+                                <ul type="disc">
+                                    <li><i> <b> University</b> :@item.University </i> </li>
+                                    <li><i><b> Year </b> : @item.Year</i> </li>
+                                    <li><i><b>Mark </b> :@item.Mark </i></li>
+                                </ul>
+                                <br>
+                            }
+                            @* <li><b>Msc Computer Scirnce </b></li>
+                            <ul type="disc">
+                            <li><i> <b> University</b> : University of calicut </i> </li>
+                            <li><i><b> Year </b> : 2020</i> </li>
+                            <li><i><b>Mark </b> : 80 % </i></li>
+                            </ul>
+                            <br>
+                            <li> <b>Bsc Computer Scirnce </b> </li>
+                            <ul>
+                            <li><i> <b> University</b> : University of calicut </i> </li>
+                            <li><i><b> Year </b> : 2017</i> </li>
+                            <li><i><b>Mark </b> : 85 % </i></li>
+                            </ul>*@
+                        </ul>
+                        <div id="education-form" class="education-form">
+                            <input type="text" asp-for="Education.Course" class="form-control " placeholder="Qualification" />
+                            <input type="text" asp-for="Education.University" class="form-control " placeholder="University" />
+                            <input type="text" asp-for="Education.Mark" class="form-control " placeholder="Mark" />
+                            <input type="text" asp-for="Education.Year" class="form-control " placeholder="Year of Passout" />
+                            <input type="submit" class="btn btn-sm btn-primary btnSaveChanges" id="btnAddEducation" value="Add Qualification" />
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="experienceDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddExperience()" />
+                    <h4 align="left"> <img src="~/jobseekerassets/images/job.png" width="25px"> Experience</h4>
+                    <blockquote>
+                        <ul type="square">
+                            @foreach (var item in Model?.Experiences)
+                            {
+                                <li><b>@item.JobTitle </b></li>
+                                <ul type="none">
+                                    <li><i> <b> Company</b> :@item.Company </i> </li>
+                                    <li><i><b> Year </b> : @item.Duration</i> </li>
+
+                                </ul>
+                                <br>
+                            }
+
+                            @* <li><b>Java Developer </b></li>
+                            <ul type="none">
+                            <li><i> Aitrich Technologies </i> </li>
+                            <li><i>2 years</i> </li>
+                            <li><i> Thrissur , Kerala , India</i></li>
+                            </ul>
+                            <br>*@
+
+                        </ul>
+                        <div id="experience-form" class="experience-form">
+                            <input type="text" asp-for="Experience.JobTitle" class="form-control " placeholder="JobTitle" />
+                            <input type="text" asp-for="Experience.Company" class="form-control " placeholder="Company" />
+                            <input type="text" asp-for="Experience.Duration" class="form-control " placeholder="Duration" />
+                            <input type="text" asp-for="Experience.Year" class="form-control " placeholder="Year" />
+                            <input type="submit" class="btn btn-sm btn-primary btnSaveChanges" id="btnAddExperience" value="Add Experience" />
+                        </div>
+                    </blockquote>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</form>
