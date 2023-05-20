@@ -1,0 +1,24 @@
+﻿@model IEnumerable<HireMeNow_MVC_Application.Models.Experience>
+
+
+<img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="showAddExperienceView()" />
+<h4 align="left"> <img src="~/jobseekerassets/images/job.png" width="25px"> Experience</h4>
+<blockquote>
+    <ul type="square" class="profileContent">
+        @foreach (var item in Model)
+        {
+            <li>
+                <div>
+                    <h4>@item.Company </h4> 
+                    <i> @item.JobTitle </i><br>
+                    <i>@item.Year</i> <br>
+                    @*<i>@item.Duration</i><br>*@
+                </div>
+                <br>
+            
+            </li>
+        }
+
+    </ul>
+   
+</blockquote>

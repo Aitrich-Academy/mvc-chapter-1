@@ -1,0 +1,44 @@
+﻿@model HireMeNow_MVC_Application.Models.Education
+
+<h4>Education</h4>
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form asp-action="_AddEducationView">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+          @*  <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Course" class="control-label"></label>
+                <input asp-for="Course" class="form-control" />
+                <span asp-validation-for="Course" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mark" class="control-label"></label>
+                <input asp-for="Mark" class="form-control" />
+                <span asp-validation-for="Mark" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year" class="control-label"></label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="University" class="control-label"></label>
+                <input asp-for="University" class="form-control" />
+                <span asp-validation-for="University" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="button" value="Create" class="btn btn-primary" onclick="AddEducation()" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+

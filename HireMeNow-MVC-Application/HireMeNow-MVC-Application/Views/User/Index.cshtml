@@ -1,0 +1,438 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
+}
+
+<style>
+    .personal-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+
+
+    .aboutMeDiv {
+        /*min-width: 420px;*/
+        padding: 35px;
+    }
+
+ 
+
+    .skillsDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+  
+
+    .experienceDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+
+    .educationDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+ 
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    #DetailsView{
+        width:90%;
+    }
+
+    .education-table {
+        width: 100%;
+        color: gray;
+        font-family: serif;
+    }
+    .profileContent{
+        color: gray;
+        font-family: serif;
+    }
+
+</style>
+<script>
+    $(document).ready(function () {
+        GetDetails();
+        GetEducations();
+        GetExperiences();
+        GetSkills();
+    });
+
+    function GetDetails() {
+        var divResult = $("#DetailsView")
+        var url = "/User/_DetailView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function GetEducations() {
+        var divResult = $("#EducationView")
+        var url = "/User/_EducationView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+    function showAddEducationView(){
+        var divResult = $("#EducationView")
+        var url = "/User/_AddEducationView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function AddEducation() {
+        var Education = {}
+        Education["Id"] = 0;
+        Education["Course"] = $("#Course").val();
+        Education["Mark"] = $("#Mark").val();
+        Education["Year"] = $("#Year").val();
+        Education["University"] = $("#University").val();
+       
+
+        var divResult = $("#EducationView")
+        var url = "/User/_AddEducationView";
+        $.ajax({
+            type: "POST",
+            async: false,
+            dataType: 'json',
+            contentType: 'application/json',
+            url: url,
+            data:  JSON.stringify(Education) ,
+            success: function (data) {
+                GetEducations();
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function GetExperiences() {
+        var divResult = $("#ExperienceView")
+        var url = "/User/_ExperienceView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function showAddExperienceView() {
+        var divResult = $("#ExperienceView")
+        var url = "/User/_AddExperienceView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function AddExperience() {
+        var Experience = {}
+        Experience["Id"] = 0;
+        Experience["JobTitle"] = $("#JobTitle").val();
+        Experience["Company"] = $("#Company").val();
+        Experience["Duration"] = $("#Duration").val();
+        Experience["Year"] = $("#Year").val();
+
+
+        var divResult = $("#ExperienceView")
+        var url = "/User/_AddExperienceView";
+        $.ajax({
+            type: "POST",
+            async: false,
+            dataType: 'json',
+            contentType: 'application/json',
+            url: url,
+            data: JSON.stringify(Experience),
+            success: function (data) {
+                GetExperiences();
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+
+    function ShowEditDetailsView() {
+        var divResult = $("#DetailsView")
+        var url = "/User/EditDetailsView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function UpdateDetails() {
+        var file;
+        var fileName;
+        var items = $('#FormFile').prop("files");
+    for (var i = 0; i < items.length; i++) {
+         file = items[i];
+         fileName = file.name;
+    }
+
+        var User = {}
+        //User["Id"] = 0;
+        User["FirstName"] = $("#FirstName").val();
+        User["LastName"] = $("#LastName").val();
+        //User["Email"] = $("#Email").val();
+        //User["Gender"] = $("#Gender").val();
+        User["Location"] = $("#Location").val();
+        User["Phone"] = $("#Phone").val();
+        User["About"] = $("#About").val();
+        User["Designation"] = $("#Designation").val();
+       // User["FormFile"] =file;
+
+            var divResult = $("#ExperienceView")
+        var url = "/User/UpdateDetails";
+        $.ajax({
+            type: "POST",
+            async: false,
+            dataType: 'json',
+            contentType: 'application/json',
+            url: url,
+            data: JSON.stringify(User),
+            success: function (data) {
+                UploadFile(file);
+                GetDetails();
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function UploadFile(fileData) {
+
+
+        if (fileData == null) { return; }
+    var fileName = fileData.name;
+            var fd = new FormData();
+    fd.append("fileData", fileData);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/User/UploadFile", false);
+            xhr.send(fd);
+       
+    }
+
+    function GetSkills() {
+        var divResult = $("#SkillsView")
+        var url = "/User/SkillsView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function ShowAddSkillsView() {
+        var divResult = $("#SkillsView")
+        var url = "/User/AddSkillsView";
+        $.ajax({
+            type: "GET",
+            async: false,
+            url: url,
+            //data: { Id: id },
+            success: function (data) {
+                divResult.html('');
+                divResult.html(data);
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+
+    function AddSkill() {
+
+        var skill = $("#Skill").val();
+    console.log("skills : "+skill)
+
+
+        var divResult = $("#SkillsView")
+        var url = "/User/AddSkill";
+        $.ajax({
+            type: "POST",
+            async: false,
+            ////dataType: 'json',
+            //contentType: 'application/json',
+            url: url,
+            data: { "skill": skill },
+            success: function (data) {
+                GetSkills();
+            },
+            error: function (data) {
+                alert("Failed to retrieve data !")
+            }
+        });
+    }
+</script>
+
+
+
+
+   <div id="content" class="p-4 p-md-5">
+        <div class="row">
+            <div class="col-md-6 personal-details">
+            <div id="DetailsView"></div>
+             @*   <div>
+
+
+                    <font size="4" face="verdana" color="black" align="center">
+
+                        <img src="~/jobseekerassets/images/leslie.png" width="100px" alt="" class="proImg"><br>
+                      
+
+                        <center>  <b> @Model?.FirstName </b> &nbsp; &nbsp;<b> @Model?.LastName</b> </center> <br>
+
+                    </font>
+                    <em>Java Developer</em> <br>
+
+                    <h3><img src="~/jobseekerassets/images/resume.png" width="25px" alt="Resume "> RESUME </h3>
+                    <font size="4" face="math" color="black" align="center">
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Email
+                        </i>
+                        <br>
+
+                        <i>
+                            <img src="~/jobseekerassets/images/phone.png" width="20px" alt="phone ">
+                            @Model?.Phone
+                        </i><br>
+                        <i>
+                            <img src="~/jobseekerassets/images/location.png" width="20px" alt="location ">  @Model?.Location
+                        </i><br>
+
+                    </font>
+                </div>*@
+              @*  <div class="aboutMeDiv">
+
+
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="editAbout()" />
+
+                    <h4> <img src="~/jobseekerassets/images/user.png" width="25px"> About Me</h4>
+                    <input type="submit" class="btn btn-sm btn-primary btnSaveChanges" id="btnSaveChanges" value="Save Changes" />
+                    <font size="3" face="math" color="black" align="justify-content-center">
+
+
+                        <blockquote>
+                            <textarea rows="5" id="aboutMeTxtDiv" class="aboutMeTxtDiv" placeholder="About Me..." asp-for="About">   @Model?.About </textarea>
+                            <div class="aboutMeContentDiv" id="aboutMeContentDiv">
+                                @Model?.About
+                            </div>
+                        </blockquote>
+                    </font>
+
+
+                </div>*@
+            </div>
+            <div class="col-md-6">
+               <div class="skillsDiv">
+                <div id="SkillsView"></div>
+                </div>
+
+                <div class="educationDiv">
+                <div id="EducationView"></div>
+              
+                </div>
+                <div class="experienceDiv">
+                <div id="ExperienceView"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+@*<div>
+    <div id="DetailsView"></div>
+    <div id="EducationView"></div>
+    <div id="ExperienceView"></div>
+</div>*@
+
+
+<input type="hidden" id="HdnIsEdit" name="Sample" value="0" />
+<input type="hidden" id="CurrentID" name="Sample" value="0" />
+
