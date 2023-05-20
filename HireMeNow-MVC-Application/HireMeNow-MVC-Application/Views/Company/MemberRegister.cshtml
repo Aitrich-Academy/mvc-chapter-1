@@ -1,0 +1,160 @@
+﻿@model HireMeNow_MVC_Application.Models.User
+
+@{
+    ViewData["Title"] = "MemberRegister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 bg-primary">
+				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon bg-dark"></span>
+					</button>
+					<div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
+						<ul class="list-group text-white list-unstyled">
+							<li class="list-group-item border-0 bg-primary">
+								<div class="mt-5 p-1 bg-secondary rounded-circle">
+									<img class="img-fluid mx-auto d-block" src="~/CompanyAssets/image/cheerful-curly-business-girl-wearing-glasses 1.png">
+								</div>
+							</li>
+							<li>
+								<h4 class="h4-fluid text-center pt-2 pb-2">Olivia<br>olivia@gmail.com</h4>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/dashboard 1 (1).png">  Dash Board</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/suitcase 2.png">  Jobs</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/application (1) 1.png">  Applications</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/question (1) 1.png"> Interviews</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/message 1.png"> Messages</p>
+							</li>
+
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/settings 1.png">  Settings</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<img class="img-fluid" src="~/CompanyAssets/image/add-group (1) 1 (1).png"><br>
+								<span class="text-white">Add New</span>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="col-md-10 " style="background-color: #f5f5fa;">
+				<div class="row">
+					<div class="col-md-12 bg-white border-bottom p-2">
+						<img class="img-fluid float-right pl-4" src="~/CompanyAssets/image/Group 33999.png">
+						<img class="img-fluid float-right" src="~/CompanyAssets/image/notification-bing.png">
+					</div>
+				</div>
+				<div class="row pt-5">
+					<div class="col-md-6 text-right ">
+						<a class="text-dark " href="#"><h4>Remove Member</h4></a>
+					</div>
+					<div class="col-md-6 text-left">
+						<a class="text-dark" href="MemberListing"><h4>List Of Members</h4></a>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-9 p-5 mx-auto d-blok border rounded bg-light mb-5">
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="h1 fluid text-center p-2">Registration Of New Member</h3>
+							</div>
+						</div>
+						<form method="post">
+							<div class="row mt-3 ">
+								<div class="col-md-5 ml-5 ">
+									<div class="form-group">
+										<label><strong>First Name</strong></label><br>
+										<input asp-for="FirstName" id="fname" class="form-control border-dark" type="text" name="fname" placeholder="Please enter first name" required><br>
+										<span asp-validation-for=" FirstName"></span>
+									</div>
+									<div class="form-group">
+										<label><strong>Email</strong></label><br>
+										<input asp-for="Email" class="form-control border-dark" type="text" name="email" placeholder="Enter Email" required><br>
+										<span asp-validation-for=" Email"></span>
+									</div>
+									<div class="form-group">
+										<label><strong>Designation</strong></label><br>
+										<input asp-for="Designation" class="form-control border-dark" type="text" name="designation" placeholder="Please enter Designation" required><br>
+									</div>
+									<div class="form-group">
+										<label><strong>Password</strong></label><br>
+										<input asp-for="Password" class="form-control border-dark" type="password" name="password" placeholder="Password" required><br>
+										<span asp-validation-for="Password"></span>
+									</div>
+								</div>
+
+								<div class="col-md-5 ml-2 ">
+									<div class="form-group">
+										<label><strong>LastName</strong></label><br>
+										<input asp-for="LastName" class="form-control border-dark" type="text" name="lname" placeholder="Please enter Last name"><br>
+										
+									</div>
+									<div class="form-group">
+										<label><strong>PhoneNumber</strong></label><br>
+										<input asp-for="Phone" class="form-control border-dark" type="text" name="phone" placeholder="phone Number" required><br>
+										<span asp-validation-for="Phone"></span>
+									</div>
+									<div class="form-group">
+										<label><strong>UserID</strong></label><br>
+										<input asp-for="UserId" class="form-control border-dark" type="text" name="userid" placeholder="Please enter User ID" required><br>
+										<span asp-validation-for="UserId"></span>
+									</div>
+
+									<div class="form-group">
+										<label><strong>ConfirmPassword</strong></label><br>
+										<input asp-for="ConfirmPassword" class="form-control border-dark" type="password" name="password" placeholder="Confirm Password" required><br>
+										<span asp-validation-for=" ConfirmPassword"></span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-10 mx-auto d-block">
+									<button class="btn  bg-primary mx-auto d-block">REGISTER</button>
+								</div>
+							</div>
+							<p> @TempData["message"]</p>
+						</form>
+
+					
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</body>
+</html>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

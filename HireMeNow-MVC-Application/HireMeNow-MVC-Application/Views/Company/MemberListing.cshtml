@@ -1,0 +1,187 @@
+﻿@model IEnumerable<HireMeNow_MVC_Application.Models.User>
+
+@{
+    ViewData["Title"] = "MemberListing";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+	.mainDiv {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		align-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	.containerdiv {
+		box-shadow: 1px 1px 6px 1px #1c1c1c;
+		border-radius: 10px;
+		padding: 10px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+</style>
+<body>
+	<div class="container-fluid">
+		<div class="row ">
+			<div class="col-md-2 bg-primary">
+				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon bg-dark"></span>
+					</button>
+					<div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
+						<ul class="list-group text-white list-unstyled">
+							<li class="list-group-item border-0 bg-primary">
+								<div class="w-60 mt-5 pb-2 pt-2 bg-secondary rounded-circle">
+									<img class="img-fluid mx-auto d-block" src="~/CompanyAssets/image/cheerful-curly-business-girl-wearing-glasses 1.png" width="60" height="60">
+								</div>
+							</li>
+							<li>
+								<h6 class="text-center">Olivia<br>olivia@gmail.com</h6>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/dashboard 1 (1).png">  Dash Board</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/suitcase 2.png">  Jobs</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/application.png">  Applications</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/question (1) 1.png"> Interviews</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/message 1.png"> Messages</p>
+							</li>
+
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/CompanyAssets/image/settings 1.png">  Settings</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<img class="img-fluid" src="~/CompanyAssets/image/add-group.png"><br>
+								<span class="text-white">Add New</span>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="col-md-10 text-dark">
+				<div class="row">
+					<div class="col-md-12 p-3  mx-auto">
+						<img class="img-fluid float-right " src="~/CompanyAssets/image/Group 33999.png" width="65" height="65">
+						<img class="img-fluid float-right" src="~/CompanyAssets/image/Group 5689.png" width="40" height="40">
+						<h4 class="h4-fluid mt-4 ">Find Jobs</h4>
+					</div>
+				</div>
+				<div class="row border-bottom">
+					<div class="col-md-9 border rounded-pill bg-white ml-3">
+						<div class="input-group  ">
+							<img class="img-fluid" src="~/CompanyAssets/image/search copy 2 (1).png">
+							<input type="search" class="form-control border-0 small" placeholder="Search by Name, MemberID,Designation" aria-label="Search" aria-describedby="search-addon">
+							<img class="img-fluid mr-5" src="~/CompanyAssets/image/icon filter.png">
+						</div>
+					</div>
+				</div>
+				<div class="row bg-light">
+					<div class="col-md-12 mt-5 ml-5">
+						<button class="btn border-0 "><h4><a href="MemberRegister">Add Member</a></h4></button>
+						<button class="btn border-0 "><h4>Remove Member</h4></button>
+					</div>
+				</div>
+				
+
+				<div class="row mainDiv">
+					<div class="containerdiv col-md-10">
+						@foreach (var job in Model)
+						{
+
+
+
+							<div class="col-md-6 detailsDiv ">
+								<img src="" /><br>
+								<b> UserId :@job.UserId </b> <br>
+								<b> @job.FirstName </b><br>
+								<b> @job.Designation </b><br>
+								<b> @job.Phone </b><br>
+								<b> @job.Email </b><br><br>
+
+								<input type="button" value="View" class="btn btn-primary">
+
+							</div>
+						}
+					</div>
+
+				</div>
+				@*<div class="row bg-light">
+					<div class="col-md-10 bg-white border rounded m-5 p-5">
+						<div class="row">
+							<div class="col-md-5 mr-5">
+								<img class="img-fluid" src="~/CompanyAssets/image/man-isolated-showing-facial-emotions 1.png">
+								<br>
+								<strong>UserID</strong><br>
+								<h5>
+									Manu<br>
+									Java Developer<br>
+									9876543210<br>
+									manu@gmail.com
+								</h5>
+								<button class="btn bg-primary rounded-pill mx-auto d-block">View</button>
+							</div>
+							<div class="col-md-5 ">
+								<img class="img-fluid" src="~/CompanyAssets/image/closeup-young-female-professional-making-eye-contact-against-colored-background 1.png">
+								<br>
+								<strong>UserID</strong><br>
+								<h5>
+									Lamiya<br>
+									H.R Manager<br>
+									9231457680<br>
+									lamiya@gmail.com
+								</h5>
+								<button class="btn bg-primary rounded-pill mx-auto d-block">View</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-5 mr-5 mt-5">
+								<img class="img-fluid" src="~/CompanyAssets/image/cheerful-indian-businessman-smiling-closeup-portrait-jobs-career-campaign 1.png">
+								<br>
+								<strong>UserID</strong><br>
+								<h5>
+									Alexander<br>
+									Marketing Executive<br>
+									78650431218<br>
+									alexander@gmail.com
+								</h5>
+								<button class="btn bg-primary rounded-pill mx-auto d-block">View</button>
+							</div>
+							<div class="col-md-5 mt-5">
+								<img class="img-fluid" src="~/CompanyAssets/image/cheerful-curly-business-girl-wearing-glasses 1.png">
+								<br>
+								<strong>UserID</strong><br>
+								<h5>
+									Catherine<br>
+									System Analyst<br>
+									8087236956<br>
+									catherine@gmail.com
+								</h5>
+								<button class="btn bg-primary rounded-pill mx-auto d-block">View</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>*@
+		</div>
+	</div>
+</body>
+</html>
