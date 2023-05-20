@@ -8,8 +8,7 @@ namespace HireMeNow_MVC_Application.Controllers
 {
     public class AdminController : Controller
     {
-       
-        private readonly IAdminService _adminService;
+		private readonly IAdminService _adminService;
         string uid;
         public AdminController(IAdminService adminService)
         {
@@ -55,8 +54,41 @@ namespace HireMeNow_MVC_Application.Controllers
 
             return View();
         }
-    }
- 
-    
+		public ActionResult AdminLogin()
+		{
+			return View();
+		}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		public ActionResult AdminLogin(string email, string password)
+		{
+			try
+
+			{
+				var result = _adminService.LoginAdmin(email, password);
+				if (result != null)
+				{
+					TempData["msg"] = "logged successfully";
+					HttpContext.Session.SetString("UserID", result.Id.ToString());
+					return View();
+				}
+				else
+				{
+					ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+					return View();
+				}
+
+			}
+			catch
+			{
+				return View();
+			}
+		}
+
+
+
+	}
+
+
 }
 
