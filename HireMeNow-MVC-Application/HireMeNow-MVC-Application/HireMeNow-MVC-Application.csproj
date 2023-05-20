@@ -34,6 +34,7 @@
   <ItemGroup>
     <None Include="Views\Company\MemberListing.cshtml" />
     <None Include="Views\Company\MemberRegister.cshtml" />
+    <None Include="Views\JobProvider\InterviewShedule.cshtml" />
   </ItemGroup>
 
 </Project>

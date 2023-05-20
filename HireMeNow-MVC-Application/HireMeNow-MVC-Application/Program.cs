@@ -12,6 +12,10 @@ builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPublicService, PublicService>();
 builder.Services.AddScoped<ICompanyServices, CompanyServices>();
 builder.Services.AddScoped<IAdminService,AdminService>();
+
+builder.Services.AddScoped<IJobProvider, JobProviderServices>();
+
+builder.Services.AddSingleton<IJobProviderRepository, JobProviderRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
