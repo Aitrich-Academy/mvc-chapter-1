@@ -111,5 +111,25 @@ namespace HireMeNow_MVC_Application.Repositories
             }
             return true;
         }
-    }
+
+		public bool registerMember(User user)
+		{
+			user.Id = new Guid();
+			user.Role = Roles.CompanyMember;
+
+			if (users.Find(e => e.Email == user.Email) == null)
+			{
+				users.Add(user);
+				return true;
+			}
+			throw new UserAlreadyExistException(user.Email);
+		}
+
+
+		public List<User> MemberListing()
+		{
+			return users.Where(e => e.Role == Roles.CompanyMember).ToList();
+		}
+
+	}
 }

@@ -10,7 +10,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSession();
 builder.Services.AddSingleton<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPublicService, PublicService>();
-
+builder.Services.AddScoped<ICompanyServices, CompanyServices>();
 builder.Services.AddScoped<IAdminService,AdminService>();
 var app = builder.Build();
 
