@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HireMeNow_MVC_Application.Models.Education>
+
+
+
+<img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="showAddEducationView()" />
+
+<h4 align="left">
+    <img src="~/jobseekerassets/images/graduation.png" width="25px"> Education
+</h4>
+<blockquote>
+    <table class="education-table">
+        <tbody>
+            <tr>
+                <th>Course </th>
+                <th>From </th>
+                <th>Year </th>
+                <th>Mark </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><b>@item.Course </b> </td>
+                    <td><i>@item.University</i> </td>
+                    <td>@item.Year</td>
+                    <td>@item.Mark</td>
+                </tr>
+
+            }
+
+        </tbody>
+    </table>
+       
+
+   
+
+</blockquote>

@@ -1,0 +1,178 @@
+﻿@model IEnumerable<HireMeNow_MVC_Application.Models.Job>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_PublicLayout.cshtml";
+}
+<style>
+    .jobData {
+        /*width: 80%;*/
+    }
+
+    .btn-apply {
+        width: -webkit-fill-available;
+        height: 40px;
+    }
+
+    .job-card {
+        /*width: 60%;*/
+        margin: auto;
+        margin-bottom: 13px;
+        padding: 10px;
+        box-shadow: 3px 4px 17px 0px #504d4d7d;
+    }
+
+    /* .job-card :hover {
+
+            box-shadow: 3px 4px 17px 0px #504d4d7d;
+        }*/
+    .applySection {
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .logoDiv {
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .jobListDiv {
+        justify-content: center;
+    }
+
+    progress {
+        width: 100%;
+        height: 8px;
+        background-color: #ddd;
+        border: none;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+        progress::-webkit-progress-bar {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        progress::-webkit-progress-value {
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+    .JobWrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tags {
+        flex-wrap: wrap
+    }
+
+    .progressSpan {
+        font-size: small;
+    }
+</style>
+<div>
+    <h1 align="center">
+        <font size="6" face="system-ui" color="black" align="center">
+            <b>Find your </b>
+        </font>
+        <font size="6" face="system-ui" color="#20a6fc" align="center">
+            <b>dream job </b>
+        </font>
+    </h1>
+    <p align="center">
+        <font face="arial">Find your next career at companies like HubSpot, Nike, and Dropbox</font>
+    </p>
+    <h2 align="center" color="#3487bf">All Jobs</h2>
+    <div class="row jobListDiv">
+
+        <div class="left col-md-8 scroll">
+            @foreach (var job in Model)
+            {
+                <div class="job-card" style="">
+                    <div width="" class="JobWrapper">
+                        <div align="center" class="col-md-2 logoDiv">
+
+                            <img src="~/publicassets/images/google symbol.png" width="50px" alt="Google" title="Google" height="50px">
+                        </div>
+                        <div class="col-md-8 jobData">
+                            <b>
+                                <font size="5px" color="#3487bf">@job.Title </font>
+                            </b>
+                            <br>
+
+                            <div>
+                                @*  company: <b>@job.Company</b> <br>*@
+                                Location: <b>@job.Location</b> <br>
+                                salary : <b>@job.Salary</b>
+
+                            </div>
+                            <br>
+                            <div class="">
+
+                                <div class="row tags">
+                                    <div class="fulltime"> Full Time </div>
+                                    <div class="marketing"> <b>Marketing</b> </div>
+                                    <div class="design"> Designing </div>
+                                </div>
+
+                            </div>
+                            <br>
+
+                        </div>
+                        <div class="col-md-2 applySection">
+                            <form method="post">
+                                <input type="hidden" name="parameter" value="@job.Id" />
+                                @{
+                                    if (TempData["UserId"] == null)
+                                    {
+                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick">
+                                    }
+                                    else
+                                    {
+                                        <input type="submit" class="btn btn-outline-primary btn-apply" value="Apply" asp-page-handler="ButtonClick">
+                                    }
+
+                                }
+                            </form>
+
+
+                            <progress id="progressBar" value=@job.Applied max=@job.Capacity></progress>
+                            <span class="progressSpan">@job.Applied applied of @job.Capacity capacity</span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="center">
+
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">&raquo;</a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+</div>

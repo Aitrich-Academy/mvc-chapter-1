@@ -8,19 +8,23 @@ namespace HireMeNow_MVC_Application.Models
 {
     public class Application
     {
-        public int Id { get; set; }
-        public string Experience { get; set; }
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string Qualification { get; set; }
-
-        public Application(int jobId, string applicantName, string location, string qualification,string experience)
+        public Guid Id { get; set; }
+        public User User { get; set; }
+        public Job Job { get; set; }
+        public string Status { get; set; }
+        public Guid CompanyId { get; set; }
+        public Application()
         {
-            Id = jobId;
-            Name = applicantName;
-            Location = location;
-            Qualification = qualification;
-            Experience = experience;
+            
+        }
+        public Application(Job job, User user, string status, Guid? CompanyId=null)
+        {
+            Id=Guid.NewGuid();
+			Job = job;
+            User = user;
+            Status = status;
+            CompanyId = CompanyId;
+           
         }
     }
 }
