@@ -15,7 +15,10 @@ namespace HireMeNow_MVC_Application.Interfaces
         public User login(string email, string password);
         User getById(Guid uid);
         bool UpdateProfile(User updatedAdmin);
-        //public User GetBymailId(string email,int id);
-        //internal User getById(Guid uid);
-    }
+		public bool registerMember(User user);
+
+		public List<User> MemberListing();
+		//public User GetBymailId(string email,int id);
+		//internal User getById(Guid uid);
+	}
 }
