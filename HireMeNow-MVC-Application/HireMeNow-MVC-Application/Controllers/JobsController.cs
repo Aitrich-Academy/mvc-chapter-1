@@ -1,4 +1,5 @@
 ﻿using HireMeNow_MVC_Application.Interfaces;
+using HireMeNow_MVC_Application.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireMeNow_MVC_Application.Controllers
@@ -14,5 +15,6 @@ namespace HireMeNow_MVC_Application.Controllers
         {
             return View(_jobService.GetJobs());
         }
-    }
+      
+	}
 }

@@ -1,0 +1,131 @@
+﻿@{
+	ViewData["Title"] = "Dashboard";
+	Layout = "_PubLayout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2 bg-primary">
+				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon bg-dark"></span>
+					</button>
+					<div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
+						<ul class="list-group text-white list-unstyled">
+							<li class="list-group-item border-0 bg-primary">
+								<div class="w-60 mt-5 pb-2 pt-2 bg-secondary rounded-circle">
+									<img class="img-fluid mx-auto d-block" src="~/JobProvider/Dashboard/images/cheerful-curly-business-girl-wearing-glasses 1.png">
+								</div>
+							</li>
+							<li>
+								<p class="text-center">Olivia<br>olivia@gmail.com</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/Dashboard/images/dashboard 1 (1).png">  Dash Board</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/Dashboard/images/suitcase 2.png">  Jobs</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/Dashboard/images/application (1) 1.png">  Applications</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/Dashboard/images/question (1) 1.png"> Interviews</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/Dashboard/images/message 1.png"> Messages</p>
+							</li>
+
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/Dashboard/images/settings 1.png">  Settings</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<img class="img-fluid" src="~/JobProvider/Dashboard/images/add-group (1) 1 (1).png"><br>
+								<span class="text-white">Add New</span>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div class="col-md-10 bg-light">
+				<div class="row bg-white">
+					<div class="col-md-12">
+						<img class="img-fluid float-right" src="~/JobProvider/Dashboard/images/Group 33999.png" width="50" height="50">
+						<img class="img-fluid float-right" src="~/JobProvider/Dashboard/images/notification-bing.png" width="50" height="50">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 mx-auto d-block">
+						<h4 class="h4-fluid text-primary">Find Job Seeker</h4>
+						<div class="input-group border rounded-pill bg-white">
+							<img class="img-fluid ml-3" src="~/JobProvider/Dashboard/images/search copy 2 (1).png" width="15" height="5">
+							<input type="search" class="form-control border-0 small" placeholder="Search by Job Title, Qualification, Industry" aria-label="Search" aria-describedby="search-addon">
+							<img class="img-fluid mr-5" src="~/JobProvider/Dashboard/images/icon filter.png" width="15" height="15">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 mx-auto d-block ">
+						<div class="row">
+							<div class="col-md-3">
+								<button class="btn btn-block text-secondary bg-info rounded-pill mt-2">Location</button>
+							</div>
+							<div class="col-md-3">
+								<button class="btn btn-block text-secondary bg-info rounded-pill mt-2">Experience</button>
+							</div>
+							<div class="col-md-3">
+								<button class="btn btn-block text-secondary bg-info rounded-pill mt-2">Categorie</button>
+							</div>
+							<div class="col-md-3">
+								<button class="btn btn-block text-secondary bg-info rounded-pill mt-2">Skills</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 mx-auto d-block mt-5 text-white text-center">
+						<div class="row mt-2">
+							<div class="col-md-3 bg-primary rounded ml-5 ">
+								<h3 class="h4-fluid float-right">@TempData["interviewSheduled"]</h3>
+								<img class="img-fluid float-left mt-2" src="~/JobProvider/Dashboard/images/Group 33988.png">
+								Interviews<br> Scheduled
+
+							</div>
+							<div class="col-md-3 bg-primary rounded ml-5">
+								<h3 class="h4-fluid float-right">127</h3>
+								<img class="img-fluid float-left mt-2" src="~/JobProvider/Dashboard/images/icon.png">
+								Application Recieved
+
+							</div>
+							<div class="col-md-3 bg-primary rounded ml-5">
+								<h3 class="h4-fluid float-right">@TempData["listedJobs"]</h3>
+								<img class="img-fluid float-left mt-2" src="~/JobProvider/Dashboard/images/icon (1).png">
+								Total Jobs Posted
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-11 mx-auto d-block mt-5">
+						<img class="img-fluid" src="~/JobProvider/Dashboard/images/smiling-hr-employer-handshaking-successful-job-applicant-hiring-greeting 1.png">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
