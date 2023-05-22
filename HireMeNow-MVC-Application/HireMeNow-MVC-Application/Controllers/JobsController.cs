@@ -1,4 +1,5 @@
 ﻿using HireMeNow_MVC_Application.Interfaces;
+using HireMeNow_MVC_Application.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HireMeNow_MVC_Application.Controllers
@@ -14,5 +15,29 @@ namespace HireMeNow_MVC_Application.Controllers
         {
             return View(_jobService.GetJobs());
         }
-    }
+		public IActionResult PostJob()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public IActionResult PostJob(Job job)
+		{
+			_jobService.PostJob(job);
+			TempData["message"] = "Posted successfully";
+			return RedirectToAction("index");
+		}
+		public IActionResult Joblists()
+		{
+			return View(_jobService.GetJobs());
+		}
+		[HttpPost]
+		public IActionResult Remove(Guid id)
+		{
+			//_jobService.GetJobs();
+			_jobService.DeleteItemById(id);
+
+			return RedirectToAction("JobLists");
+	}
+	}
 }

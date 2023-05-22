@@ -1,0 +1,68 @@
+﻿@model HireMeNow_MVC_Application.Models.Job
+
+@{
+    ViewData["Title"] = "PostJob";
+    Layout = "~/Views/Shared/PostJob_Layout.cshtml";
+}
+
+      <div class="row">
+
+					 <div class="col-md-10 p-5 mx-auto d-block border rounded mb-5" style="border-radius: 30px; box-shadow: 0px 0px 5px 2px gray;">
+						<form asp-action="PostJob">
+						 <div class="row">
+							 <div class="col-md-10">
+								 <div class="form-group">
+									 <label for="jobTitle"><h4>Job Title</h4></label>
+									 <br>
+									 <input asp-for="Title"class="form-control p-4 bg-light" type="text" placeholder="Enter Job Title"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="description"><h4>Description</h4></label>
+									 <br>
+									 <input  asp-for="Description"class="form-control p-4 bg-light" type="text" placeholder="Enter Description"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="Salary"><h4>Salary</h4></label>
+									 <br>
+									 <input  asp-for="Salary"class="form-control p-4 bg-light" type="text" placeholder="Enter Salary"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="Experience"><h4>Experience</h4></label>
+									 <br>
+									 <input  asp-for="Experience"class="form-control p-4 bg-light" type="text" placeholder="Enter TypeOfWork"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="TypeOfWork"><h4>TypeOfWork</h4></label>
+									 <br>
+									 <input  asp-for="TypeOfWork"class="form-control p-4 bg-light" type="text" placeholder="Enter TypeOfWork"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="Location"><h4>Location</h4></label>
+									 <br>
+									 <input asp-for="Location"class="form-control p-4 bg-light" type="text"  placeholder="Enter Location"required="">
+								 </div>
+							 </div>
+						 </div>
+						 <div class="row pt-4">
+							 <div class="col-md-3">
+                                  <input type="submit" value="Post Job" class="btn bg-primary pl-5 pr-5" />
+								
+							 </div>
+							 <div class="col-md-3">
+								 <label >Push Notification</label>
+								 <img class="img-fluid" src="~/postjob/images/Group 14.png">
+							 </div>
+							 <div class="col-md-3">
+								 <label>Email Notification</label>
+								<img class="img-fluid" src="~/postjob/images/Group 14.png">
+							</div>
+							<div class="col-md-3">
+					@if (TempData["message"] != null)
+					{
+						@TempData["message"]
+					}
+				</div>
+						 </div>	
+						 </form>
+					 </div>
+				 </div>

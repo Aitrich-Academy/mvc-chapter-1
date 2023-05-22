@@ -1,0 +1,21 @@
+﻿@model IEnumerable<HireMeNow_MVC_Application.Models.Job>
+
+@{
+    ViewData["Title"] = "Joblists";
+    Layout = "~/Views/Shared/_JobListLayout.cshtml";
+}
+@foreach (var item in Model) {
+            <div class="row">
+							<div class="col-md-12 border p-3 m-2">
+								<img class="img-fluid float-left pb-5" src="~/publicassets/images/company logo (3).png">
+								<h5 class="h5-fluid">@item.Title</h5>
+								<form method="post" asp-action="Remove" asp-route-id="@item.Id"><button class="btn btn-lg bg-primary float-right mx-auto d-block">Remove</button></form>
+								<p>Agency.<span class="text-secondary">@item.Location</span></p>
+								<button class="btn border-white btn-outline-success ">@item.TypeOfWork</button>
+								<button class="btn btn-outline-warning rounded-pill ">Marketing</button>
+								<button class="btn btn-outline-primary rounded-pill ">Design</button>
+							</div>
+						</div>
+
+}
+   

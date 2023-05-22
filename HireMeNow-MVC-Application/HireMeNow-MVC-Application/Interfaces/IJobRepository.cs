@@ -8,5 +8,7 @@ namespace HireMeNow_MVC_Application.Interfaces
         List<Job> GetJobs();
 		Job GetJobById(Guid selectedJobId);
 		List<Job> GetJobsByIds(List<Guid> appliedJobsIds);
+		
+		void DeleteById(Guid id);
 	}
 }
