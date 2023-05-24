@@ -8,10 +8,11 @@ namespace HireMeNow_MVC_Application.Services
 	public class CompanyServices : ICompanyServices
 	{
 		public IUserRepository _userRepository;
-
-		public CompanyServices(IUserRepository userRepository)
+		ICompanyRepository _companyRepository;
+        public CompanyServices(IUserRepository userRepository, ICompanyRepository companyRepository)
 		{
 			_userRepository = userRepository;
+			_companyRepository = companyRepository;
 		}
 		public List<User> MemberListing()
 		{
@@ -44,5 +45,14 @@ namespace HireMeNow_MVC_Application.Services
 			catch (Exception ex) { throw ex; }
 		}
 
-	}
+        public Company GetCompanyById(Guid companyId)
+        {
+			return _companyRepository.GetCompanyById(companyId);
+        }
+
+        public Company Update(Company updatedCompany)
+        {
+			return _companyRepository.Update(updatedCompany);
+        }
+    }
 }
