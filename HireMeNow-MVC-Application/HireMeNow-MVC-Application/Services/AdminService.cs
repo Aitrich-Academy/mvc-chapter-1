@@ -74,6 +74,19 @@ namespace HireMeNow_MVC_Application.Services
 				throw new ServiceException("technical error occured");
 			}
 		}
+        public List<User> JobSeekerListing()
+        {
+            try
+            {
+                List<User> list = userRepository.JobSeekerListing();
 
-	}
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+    }
 }
