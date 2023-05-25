@@ -151,6 +151,9 @@ namespace HireMeNow_MVC_Application.Repositories
 			updateUserProfile(loggedUser);
 			return true;
 		}
-
-	}
+        public List<User> JobSeekerListing()
+        {
+            return users.Where(e => e.Role == Roles.JobSeeker).ToList();
+        }
+    }
 }
