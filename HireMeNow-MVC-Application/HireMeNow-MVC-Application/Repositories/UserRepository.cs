@@ -23,7 +23,7 @@ namespace HireMeNow_MVC_Application.Repositories
 
         private List<User> users = new List<User> { new User( "jobprovider", "", "jobprovider@gmail.com", 123, "123", Roles.JobProvider),
          new User( "manu", "", "manu@gmail.com", 123, "123", Roles.CompanyMember),
-         new User( "rs", "", "sad@gmail.com", 123, "123", Roles.CompanyMember), new User( "arun", "", "arun@gmail.com", 123, "123", Roles.Admin)};
+         new User( "John  Cena", "", "john@gmail.com", 98565458, "123", Roles.JobSeeker), new User( "arun", "", "arun@gmail.com", 123, "123", Roles.Admin)};
         private int nextId = 2;
 
 
@@ -131,5 +131,9 @@ namespace HireMeNow_MVC_Application.Repositories
 			return users.Where(e => e.Role == Roles.CompanyMember).ToList();
 		}
 
+        public List<User> JobSeekerListing()
+        {
+            return users.Where(e=>e.Role==Roles.JobSeeker).ToList();
+        }
 	}
 }

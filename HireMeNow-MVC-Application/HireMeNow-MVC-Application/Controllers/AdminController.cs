@@ -55,6 +55,21 @@ namespace HireMeNow_MVC_Application.Controllers
 
             return View();
         }
+
+		public ActionResult JobSeekerListing() 
+        {
+            try
+            {
+				List<User> jobseekers= _adminService.JobSeekerListing();
+
+                return View(jobseekers);
+			}
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+		}
     }
  
     

@@ -20,5 +20,7 @@ namespace HireMeNow_MVC_Application.Interfaces
 		public List<User> MemberListing();
 		//public User GetBymailId(string email,int id);
 		//internal User getById(Guid uid);
+
+        public List<User> JobSeekerListing();
 	}
 }

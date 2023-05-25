@@ -48,5 +48,19 @@ namespace HireMeNow_MVC_Application.Services
             }
             catch (Exception ex) { throw ex; }
         }
+
+        public List<User> JobSeekerListing() 
+        {
+            try
+            {
+                List<User> list = userRepository.JobSeekerListing();
+
+                return list;
+			}
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
