@@ -1,0 +1,261 @@
+﻿@model HireMeNow_MVC_Application.Models.Company
+
+<style>
+    .personal-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .proImg {
+        margin-left: 25%;
+    }
+
+    .aboutMeDiv {
+        min-width: 420px;
+        padding: 35px;
+    }
+
+    .btnSaveChanges {
+        display: none;
+    }
+
+    .aboutMeTxtDiv {
+        min-width: 350px;
+        padding: 5px;
+        min-height: 150px;
+        display: none;
+        /*width: 401px;*/
+    }
+
+    .skillsDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .skill {
+        display: none;
+    }
+
+    .experienceDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .experience-form {
+        display: none;
+    }
+
+    .educationDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .education-form {
+        display: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+</style>
+<script>
+
+    function editAbout() {
+
+        var div = document.getElementById("aboutMeTxtDiv");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnSaveChanges");
+        btnUpdate.classList.toggle("show");
+        var div2 = document.getElementById("aboutMeContentDiv");
+        div2.classList.toggle("hidden");
+
+
+    }
+    function ShowAddSkill() {
+        var div = document.getElementById("skillInput");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnAddSkill");
+        btnUpdate.classList.toggle("show");
+        //var div2 = document.getElementById("aboutMeContentDiv");
+        //div2.classList.toggle("hidden");
+    }
+
+    function ShowAddEducation() {
+        var div = document.getElementById("education-form");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnAddEducation");
+        btnUpdate.classList.toggle("show");
+        //var div2 = document.getElementById("aboutMeContentDiv");
+        //div2.classList.toggle("hidden");
+    }
+
+    function ShowAddExperience() {
+        var div = document.getElementById("experience-form");
+        div.classList.toggle("show");
+        var btnUpdate = document.getElementById("btnAddExperience");
+        btnUpdate.classList.toggle("show");
+
+    }
+    //function UpdateAboutMe(parameter) {
+
+    //    console.log("Parameter: " + parameter);
+
+    //    $.ajax({
+    //        url: '/Profile?handler=UpdateAboutMe',
+    //        type: 'POST',
+    //        data: { parameter: parameter },
+    //        success: function (result) {
+    //            console.log("Server response: " + result);
+    //            // You can update the UI or perform other actions based on the server response
+    //        },
+    //        error: function (error) {
+    //            console.log("An error occurred: " + error);
+    //        }
+    //    });
+    //}
+
+    function addSkill() {
+        var skillInput = $('#skillInput');
+        var skillList = $('#skillsList');
+        var skills = [];
+        var skill = skillInput.val();
+        if (skill.length > 0) {
+            skillList.append('<li>' + skill + '</li>');
+            // skillInput.val('');
+            //skills.push(skill);
+            //// Update the model's Skills list
+            //var skillsVal = $('#Skills').val() ;
+            //console.log("skills  " + skillsVal);
+
+            //if (skillsVal != "") {
+            //    skills = JSON.parse(skillsVal);
+            //    console.log("skills2  " + skills2);
+            //}
+
+            ////if (skill!="")
+            //    //skills.push(skill);
+            //$('#Skills').val(skills);
+
+            // Submit the form to update the model in the server
+            $('#profileForm').submit();
+        }
+    }
+
+</script>
+
+<form method="post" id="profileForm">
+    <div id="content" class="p-4 p-md-5">
+        <div class="row">
+            <div class="col-md-6 personal-details">
+
+                <div>
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowEditDetailsView()" />
+                    <div class="firstDiv">
+                        @if (Model.Image==null)
+                        {
+                            <img src="~/publicassets/images/gray-user.png" width="100px" alt="" class="proImg" />
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/Uploads/"+Model.Image)" width="100px" alt="" class="proImg">
+                        }
+
+                        <font size="4" face="verdana" color="black" align="center">
+
+                            <center>  <b> @Model?.Name </b></center>
+
+                        </font>
+                       @* <em>@Model.Designation</em>*@ <br>
+                    </div>
+
+
+                    @* <h3><img src="~/jobseekerassets/images/resume.png" width="25px" alt="Resume "> RESUME </h3>*@
+                    <font size="4" face="math" color="black" align="center">
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Website
+                        </i>
+                        <br>
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Email
+                        </i>
+                        <br>
+
+                        <i>
+                            <img src="~/jobseekerassets/images/phone.png" width="20px" alt="phone ">
+                            @Model?.Phone
+                        </i><br>
+                        <i>
+                            <img src="~/jobseekerassets/images/location.png" width="20px" alt="location ">  @Model?.Location
+                        </i><br>
+
+                    </font>
+                </div>
+                <div class="aboutMeDiv">
+
+
+
+
+                    <h4> <img src="~/jobseekerassets/images/user.png" width="25px"> About Company </h4>
+
+                    <font size="3" face="math" color="black" align="justify-content-center">
+
+
+                        <blockquote>
+                            <div class="aboutMeContentDiv profileContent" id="aboutMeContentDiv">
+                                @Model?.About
+                            </div>
+                        </blockquote>
+                    </font>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="skillsDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddSkill()" />
+                    <h4 align="left"><img src="~/jobseekerassets/images/bulb.png" width="25px"> Vision</h4>
+                    <blockquote>
+                        <div class="aboutMeContentDiv profileContent" id="aboutMeContentDiv">
+                            @Model?.Vision
+                        </div>
+
+                    </blockquote>
+                </div>
+
+                <div class="educationDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddEducation()" />
+
+                    <h4 align="left">
+                        <img src="~/jobseekerassets/images/graduation.png" width="25px"> Mission
+                    </h4>
+                    <blockquote>
+                        <div class="aboutMeContentDiv profileContent" id="aboutMeContentDiv">
+                            @Model?.Mission
+                        </div>
+                    </blockquote>
+                </div>
+                <div class="experienceDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="ShowAddExperience()" />
+                    <h4 align="left"> <img src="~/jobseekerassets/images/job.png" width="25px"> Contact Details</h4>
+                    <blockquote>
+                        <div class="aboutMeContentDiv profileContent" id="aboutMeContentDiv">
+                            @Model?.Address
+                        </div>
+                    </blockquote>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</form>
+

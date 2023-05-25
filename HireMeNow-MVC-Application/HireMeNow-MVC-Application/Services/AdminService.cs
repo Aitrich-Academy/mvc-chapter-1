@@ -6,6 +6,7 @@ namespace HireMeNow_MVC_Application.Services
 {
     public class AdminService:IAdminService
     {
+        public bool _isLogged = false;
         public IUserRepository userRepository;
         public User LoggedUser = new User();
         public AdminService(IUserRepository _userRepository)
@@ -48,19 +49,31 @@ namespace HireMeNow_MVC_Application.Services
             }
             catch (Exception ex) { throw ex; }
         }
+		public User LoginAdmin(string email, string password)
+		{
+			try
+			{
 
-        public List<User> JobSeekerListing() 
-        {
-            try
-            {
-                List<User> list = userRepository.JobSeekerListing();
-
-                return list;
+				LoggedUser = userRepository.login(email, password);
+				if (LoggedUser.Email != null)
+				{
+					Console.WriteLine("Login successful!");
+					_isLogged = true;
+					Console.WriteLine("Welcome " + LoggedUser.FirstName);
+					return LoggedUser;
+				}
+				else
+				{
+					Console.WriteLine("Login failed. Please try again.");
+					return null;
+				}
 			}
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-    }
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.Message);
+				throw new ServiceException("technical error occured");
+			}
+		}
+
+	}
 }

@@ -67,7 +67,7 @@ namespace HireMeNow_MVC_Application.Repositories
 
         }
 
-        internal User updateUserProfile(User updatedUser)
+        public User updateUserProfile(User updatedUser)
         {
             int indexToUpdate = users.FindIndex(item => item.Id == updatedUser.Id);
             if (indexToUpdate != -1)
@@ -86,13 +86,8 @@ namespace HireMeNow_MVC_Application.Repositories
 
         }
 
-        internal void ApplyJob(int jobId)
-        {
-            loggedUser.AppliedJobs.Add(jobId);
-            updateUserProfile(loggedUser);
-        }
 
-        internal List<User> getCompanyMembers()
+		internal List<User> getCompanyMembers()
         {
             return users.Where(e => e.Role == Enums.Roles.CompanyMember).ToList();
         }
@@ -131,9 +126,31 @@ namespace HireMeNow_MVC_Application.Repositories
 			return users.Where(e => e.Role == Roles.CompanyMember).ToList();
 		}
 
-        public List<User> JobSeekerListing()
-        {
-            return users.Where(e=>e.Role==Roles.JobSeeker).ToList();
-        }
+		public List<Guid> getAppliedJobs(Guid userId)
+		{
+			loggedUser= getById(userId);
+			if (loggedUser!=null)
+			{
+				return loggedUser?.AppliedJobs.ToList();
+
+			}
+			return null;
+
+		}
+
+		public User getuser()
+		{
+			return users.FirstOrDefault();
+		}
+
+		public bool ApplyJob(Guid jobId, Guid userId)
+		{
+			loggedUser=getById(userId);
+
+			loggedUser.AppliedJobs.Add(jobId);
+			updateUserProfile(loggedUser);
+			return true;
+		}
+
 	}
 }

@@ -25,5 +25,9 @@ namespace HireMeNow_MVC_Application.Models
             Location = location;
             Time = time;
         }
+        public Interview()
+        {
+            
+        }
     }
 }

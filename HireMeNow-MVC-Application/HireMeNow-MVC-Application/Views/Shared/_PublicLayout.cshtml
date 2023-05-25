@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link href="~/publicassets/css/home.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar">
+        <div>
+
+
+            <ul>
+                <li>
+                    <div class="navitem">
+                        <b>
+                            <font size="5px">Hire Me Now!</font>
+                        </b>
+                    </div>
+                </li>
+                <li class="menu-item">
+                    <div class="navitem"><a href="#" class="selected"> Find Jobs </a></div>
+                </li>
+                <li class="menu-item">
+                    <div class="navitem"> <a href="#">Browse Companies</a></div>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                @if (TempData["UserId"] ==null)
+                {
+                    <li class="menu-item " style="float: right;">
+                        <div class="navitem"><a href="./login">Login</a> </div>
+                    </li>
+                    <li class="menu-item " style="float: right;">
+                        <div class="navitem"> <a href="./register">Sign Up</a> </div>
+                    </li>
+                }
+                else
+                {
+                    <li class="menu-item " style="float: right;">
+                        <div class="navitem"> <a href="./login" class="btn btn-primary">Logout</a> </div>
+                    </li>
+                }
+            </ul>
+        </div>
+
+
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div class="footer1">
+        <br><br>
+        <font size="4" face="" color="white" align="center">
+            <h1> Get Notified every new job </h1>
+            <i>
+                Ideal platform for job seekers passionate about startups and<br>
+
+                seeking new career opportunities.
+            </i>
+        </font>
+        <br><br>
+        <br><br>
+    </div>
+    <div class="footer2">
+
+        <div class="hiremeFooter">
+
+            <h3>Hire Me Now !</h3>
+            <font size="4" face="Work sans-serif" color="#54585c" align="justify">
+                <div>
+                    <p>
+                        Ideal platform for job seekers passionate about startups and seeking new career
+                        opportunities.
+                    </p>
+                </div>
+
+            </font>
+            <br>
+            <p align="center">
+                <img src="~/publicassets/images/twitter.png" width="20px" height="20px">
+                &nbsp; &nbsp;
+                <img src="~/publicassets/images/linkedin.png" width="20px" height="20px">
+                &nbsp; &nbsp;
+                <img src="~/publicassets/images/instagram.png" width="20px" height="20px">
+                &nbsp; &nbsp;
+                <img src="~/publicassets/images/facebook.png" width="10px" height="20px">
+                &nbsp; &nbsp;
+                <img src="~/publicassets/images/youtube.png" width="20px" height="20px">
+                &nbsp; &nbsp;
+            </p>
+        </div>
+
+        <div width="15%">
+
+            <ul type="none">
+                <h3>About us</h3>
+                <font size="3" face="Work sans-serif" color="#54585c">
+
+                <li>About us</li>
+                <li>Home</li>
+                <li>Feature</li>
+                <li>Team</li>
+                </font>
+            </ul>
+        </div>
+        <div width="15%">
+            <ul type="none">
+                <h3>Company</h3>
+                <font size="3" face="Work sans-serif" color="#54585c">
+                <li>Contact us</li>
+                <li>Career</li>
+                <li>Pricing</li>
+                <li>Blog</li>
+                </font>
+            </ul>
+        </div>
+        <div width="15%">
+            <ul type="none">
+                <h3>Support</h3>
+                <font size="3" face="Work sans-serif" color="#54585c">
+                <li>Support</li>
+                <li>Privacy</li>
+                <li>FAQ</li>
+                <li>Contact </li>
+                </font>
+            </ul>
+        </div>
+        <div width="15%">
+            <ul type="none">
+                <h3>Service</h3>
+                <font size="3" face="Work sans-serif" color="#54585c">
+                <li>SEO</li>
+                <li>UI Design</li>
+                <li>Developer</li>
+                <li>Accountant</li>
+                </font>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>

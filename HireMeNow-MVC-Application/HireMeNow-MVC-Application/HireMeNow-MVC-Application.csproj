@@ -22,6 +22,7 @@
     <Folder Include="Models\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\JobProvider\Dashboard\" />
     <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\bootstrap\" />
     <Folder Include="wwwroot\lib\bootstrap\dist\js\" />
@@ -34,6 +35,21 @@
   <ItemGroup>
     <None Include="Views\Company\MemberListing.cshtml" />
     <None Include="Views\Company\MemberRegister.cshtml" />
+    <None Include="Views\JobProvider\InterviewShedule.cshtml" />
+    <None Include="Views\JobSeeker\AllJobs.cshtml" />
+    <None Include="Views\JobSeeker\MyApplications.cshtml" />
+    <None Include="Views\JobSeeker\Profile.cshtml" />
+    <None Include="Views\Jobs\Index.cshtml" />
+    <None Include="Views\User\AddSkillsView.cshtml" />
+    <None Include="Views\User\EditDetailsView.cshtml" />
+    <None Include="Views\User\Index.cshtml" />
+    <None Include="Views\User\SkillsView.cshtml" />
+    <None Include="Views\User\_AddEducationView.cshtml" />
+    <None Include="Views\User\_AddExperienceView.cshtml" />
+    <None Include="Views\User\_DetailView.cshtml" />
+    <None Include="Views\User\_EducationView.cshtml" />
+    <None Include="Views\User\_ExperienceView.cshtml" />
+    <None Include="wwwroot\JobseekerAssets\js\profileScript.js" />
   </ItemGroup>
 
 </Project>

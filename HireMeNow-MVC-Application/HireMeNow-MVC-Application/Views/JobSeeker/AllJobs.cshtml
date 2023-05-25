@@ -1,0 +1,303 @@
+﻿@model IEnumerable<HireMeNow_MVC_Application.Models.Job>
+
+@{
+    ViewData["Title"] = "AllJobs";
+    Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
+	var selectedJob = ViewBag.selectedJob as Job;
+}
+<style>
+
+	.proImg {
+		background-color: #ffffffcf;
+		height: 125px;
+		width: 125px;
+		border-radius: 50%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		top: 61px;
+	}
+	.right {
+		
+		box-shadow: -4px -2px 4px 1px #0000001c;
+	}
+
+	.header {
+		height: 151px;
+		/* width: 763px; */
+		background-image: linear-gradient(to bottom right, #20a6fc, #94f1e6ab);
+		/* background-position: center; */
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-direction: column;
+		background-repeat: round;
+	}
+
+	.job-specs {
+		
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: center;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.spec{
+		width: 50%;
+	}
+
+	.nav {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		padding-left: 0;
+		margin-bottom: 0;
+		list-style: none;
+		justify-content: space-between;
+	}
+
+	.nav-link {
+		display: block;
+		padding: 5px;
+	}
+
+	.jobs-list{
+		max-height: 700px;
+		overflow: scroll;
+	}
+
+	.jobs-list::-webkit-scrollbar {
+		width: 0.5em;
+	}
+
+	.jobs-list::-webkit-scrollbar-track {
+		background-color: #f1f1f1;
+	}
+
+	.jobs-list::-webkit-scrollbar-thumb {
+		background-color: #888;
+	}
+	.job-item:hover{
+		box-shadow: 0px 2px 4px 0px #606060c2;
+	}
+
+	.tab-content{
+		height:200px;
+		overflow:scroll;
+	}
+
+	.desc{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: space-between;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+
+	/*for confirmation box */
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		display: none;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.confirmation-box {
+		
+		padding: 20px;
+		border-radius: 5px;
+		text-align: center;
+		background-image: linear-gradient(to bottom right, #149bf1b8, #94f1e6d1);
+		font-family: serif;
+	}
+
+		.confirmation-box h2 {
+			margin-bottom: 10px;
+		}
+
+		.confirmation-box .buttons {
+			margin-top: 20px;
+		}
+
+			.confirmation-box .buttons button {
+				margin: 0 10px;
+			}
+
+</style>
+<script>
+	var selectedJobId=0;
+	function showConfirmation() {
+		
+		$("#confirmationOverlay").fadeIn();
+		var divElement = document.getElementById('confirmationOverlay');
+		divElement.style.display = 'flex';
+	}
+
+	function hideConfirmation() {
+		$("#confirmationOverlay").fadeOut();
+	}
+
+	function submitForm() {
+		document.getElementById("myForm").submit();
+	}
+</script>
+
+
+<div>
+	<div class="row fullscreen-div" ">
+		<div class="col-md-7 bg-light text-secondary small p-4 jobs-list">
+			<div class="row">
+				<div class="col-md-6 ">
+					<span class="text-dark font-weight-bold">Showing @Model.Count() Jobs</span>
+
+				</div>
+				<div class="col-md-6">
+					<span>Sort by : <button class="btn  dropdown-toggle font-weight-bold" type="button" data-toggle="dropdown">Newest Jobs</button></span>
+				</div>
+			</div>
+			<div class="row">
+			 @foreach (var job in Model)
+            {
+		
+					<div class="col-md-12 p-2 mt-4 job-item" >
+				
+						@if(job.Company?.Image!=null){
+							<img class="img-fluid float-left mr-2" src="@Url.Content(job.Company.Image)" height="50px" width="50px">
+					}else{
+							<img class="img-fluid float-left mr-2" src="/jobseekerassets/images/Company.png" height="50px" width="50px">
+
+					}
+            
+						<img class="img-fluid float-right" src="/jobseekerassets/images/archive-minus.png">
+						<h5 class="text-dark"> <a href="/jobseeker/AllJobs?selectedJobId=@job.Id">@job.Title </a></h5>
+						<a href="#">@job.Capacity</a> .Location : @job.Location<br><br>
+					<p>@job.Description</p>
+					<div class="row">
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.Type</div>
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">$@job.Salary</div>
+							<div class="bg-secondary text-white rounded-pill ml-2 mr-2 pl-2 pr-2">@job.Location</div>
+					
+					
+					</div>
+				</div>
+			
+			}
+			</div>
+		</div>
+		<div class="col-md-5 bg-white  right" align="center">
+			
+				<div class="header">
+					<div class="proImg">
+					@{
+						
+						if (selectedJob?.Company?.Image!=null)
+						{
+							<img class="img-fluid float-left mr-2" src="@selectedJob.Company.Image" height="100px" width="100px">
+						}
+						else
+						{
+							<img class="img-fluid float-left mr-2" src="/jobseekerassets/images/company.png" height="100px" width="100px">
+
+						}
+					}
+						
+					</div>
+				</div>
+				<br><br>
+			<h2>@selectedJob?.CompanyName</h2>
+			<h2 class="clr-code-text">@selectedJob?.Title</h2>
+				<div class="job-specs">
+					<div class="spec">
+						<i>Type of employment </i><br>
+					<b>@selectedJob?.Type</b>
+					</div>
+					<div class="spec">
+						<i>Location </i><br>
+					<b>@selectedJob?.Location</b>
+					</div>
+
+					<div class="spec">
+						<i>Experience Level </i><br>
+					<b>@selectedJob?.Experience</b>
+					</div>
+
+					<div class="spec">
+						<i>Onsite/Remote </i><br>
+					<b>@selectedJob?.TypeOfWork</b>
+					</div>
+
+					<div class="spec">
+						<i>Salary Range </i><br>
+					<b>$ @selectedJob?.Salary</b>
+					</div>
+
+
+				</div>
+
+				<div class="desc">
+				<div class="container" style="">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" data-toggle="tab" href="#company">Company</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#job-description">Job Description</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-toggle="tab" href="#responsibilities">Responsibilities</a>
+						</li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade show active" id="company">
+							<h4>Company</h4>
+							<p>@selectedJob?.Company?.About</p>
+						</div>
+						<div class="tab-pane fade" id="job-description">
+							<h4>Job Description</h4>
+							<p>@selectedJob?.Description</p>
+						</div>
+						<div class="tab-pane fade" id="responsibilities">
+							<h4>Responsibilities</h4>
+							<p>@selectedJob?.Responsibilities</p>
+						</div>
+					</div>
+				</div>
+				<form method="post" action="applyjob" id="myForm">
+					<input type="hidden" name="jobId" value="@selectedJob?.Id" />
+					
+					</form>
+				<button class="btn btn-primary " style="width: 40%;" onclick="showConfirmation()">
+					Apply Job
+				</button>
+					
+				<button class="btn " style="width: 40%;background-color: #ECECEC;">
+					Send Message
+				</button>
+				
+
+			</div>
+
+			</div>
+		<div id="confirmationOverlay" class="overlay">
+			<div class="confirmation-box">
+				<h2>Are you sure you want to Apply this Job ?</h2>
+				<div class="buttons">
+					<button onclick="submitForm()">Yes</button>
+					<button onclick="hideConfirmation()">No</button>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
