@@ -109,7 +109,7 @@ namespace HireMeNow_MVC_Application.Repositories
 
 		public bool registerMember(User user)
 		{
-			user.Id = new Guid();
+			user.Id = Guid.NewGuid();
 			user.Role = Roles.CompanyMember;
 
 			if (users.Find(e => e.Email == user.Email) == null)

@@ -1,6 +1,118 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@model HireMeNow_MVC_Application.Models.Job
 
-<p>Use this page to detail your site's privacy policy.</p>
+@{
+    ViewData["Title"] = "Privacy";
+    Layout = "~/Views/Shared/PostJob_Layout.cshtml";
+}
+
+<h1>Privacy</h1>
+
+<h4>Job</h4>
+<hr />
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Privacy">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label"></label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Company" class="control-label"></label>
+                <input asp-for="Company" class="form-control" />
+                <span asp-validation-for="Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Capacity" class="control-label"></label>
+                <input asp-for="Capacity" class="form-control" />
+                <span asp-validation-for="Capacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Applied" class="control-label"></label>
+                <input asp-for="Applied" class="form-control" />
+                <span asp-validation-for="Applied" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+*@
+			 <div class="row">
+
+					 <div class="col-md-10 p-5 mx-auto d-block border rounded mb-5" style="border-radius: 30px; box-shadow: 0px 0px 5px 2px gray;">
+						<form method="post">
+						 <div class="row">
+							 <div class="col-md-10">
+								 <div class="form-group">
+									 <label for="jobTitle"><h4>Job Title</h4></label>
+									 <br>
+									 <input asp-for="Title"class="form-control p-4 bg-light" type="text" placeholder="Enter Job Title"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="description"><h4>Description</h4></label>
+									 <br>
+									 <input  asp-for="Description"class="form-control p-4 bg-light" type="text" placeholder="Enter Description"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="Salary"><h4>Salary</h4></label>
+									 <br>
+									 <input  asp-for="Salary"class="form-control p-4 bg-light" type="text" placeholder="Enter Salary"required="">
+								 </div>
+								 <div class="form-group">
+									 <label for="Location"><h4>Location</h4></label>
+									 <br>
+									 <input asp-for="Location"class="form-control p-4 bg-light" type="text"  placeholder="Enter Location"required="">
+								 </div>
+							 </div>
+						 </div>
+						 <div class="row pt-4">
+							 <div class="col-md-3">
+								 <input class="btn bg-primary pl-5 pr-5" type="submit" value="Post Job"></input>
+								
+							 </div>
+							 <div class="col-md-3">
+								 <label >Push Notification</label>
+								 <img class="img-fluid" src="~/postjob/images/Group 14.png">
+							 </div>
+							 <div class="col-md-3">
+								 <label>Email Notification</label>
+								<img class="img-fluid" src="~/postjob/images/Group 14.png">
+							</div>
+						 </div>	
+						 </form>
+					 </div>
+				 </div>
+               

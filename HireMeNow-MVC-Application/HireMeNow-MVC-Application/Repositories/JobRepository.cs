@@ -11,6 +11,20 @@ namespace HireMeNow_MVC_Application.Repositories
 		new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich"),
 		new Job("Dotnet Developer","Senior dotnet developer .","kochi","Fulltime","100000-300000",new Guid(),"Aitrich")};
 
+		public void DeleteById(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void DeleteById(Guid id)
+		{
+			Job item = jobs.FirstOrDefault(i => i.Id == id);
+			if (item != null)
+			{
+				jobs.Remove(item);
+			}
+		}
+
 		public Job GetJobById(Guid selectedJobId)
 		{
 			return jobs.Where(e=>e.Id==selectedJobId).FirstOrDefault();
@@ -32,7 +46,7 @@ namespace HireMeNow_MVC_Application.Repositories
 
 		public void PostJob(Job job)
         {
-            job.Id = new Guid();
+            job.Id = Guid.NewGuid(); 
             jobs.Add(job);
         }
     }

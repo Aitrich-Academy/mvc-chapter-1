@@ -7,5 +7,6 @@ namespace HireMeNow_MVC_Application.Interfaces
         public void PostJob(Job job);
         public List<Job> GetJobs();
         public Job getJobById(Guid selectedJobId);
+		void DeleteItemById(Guid id);
 	}
 }
