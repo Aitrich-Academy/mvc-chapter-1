@@ -13,7 +13,7 @@ namespace HireMeNow_MVC_Application.Models
 
 		public string? Designation { get; set; }
 		public string? UserId { get; set; }
-		public int companyId { get; set; }
+		public Guid? companyId { get; set; }
 
 		public string? Image { get; set; }
 

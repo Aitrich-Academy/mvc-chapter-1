@@ -20,8 +20,7 @@ namespace HireMeNow_MVC_Application.Controllers
         }
         public IActionResult AllJobs(Guid? selectedJobId =null)
 		{
-			var result = _userRepository.getuser();
-			HttpContext.Session.SetString("UserId", result.Id.ToString());
+			
 			List<Job> jobs = _jobService.GetJobs();
 
 			Job selectedJob=new Job();
@@ -41,14 +40,12 @@ namespace HireMeNow_MVC_Application.Controllers
             if (jobId!=null)
             {
 				var uid = HttpContext.Session.GetString("UserId");
-				//    Job job = _jobService.getJobById(new Guid(jobId));
-				//bool res=_userService.ApplyJob(new Guid(jobId),new Guid(uid));
+				
 				_applicationService.AddApplication(new Guid(jobId), new Guid(uid));
 
-				//if (res)
-    //            {
+			
                     return RedirectToAction("MyApplications");
-                //}
+                
 
 			}
 			return RedirectToAction("AllJobs");
@@ -57,7 +54,6 @@ namespace HireMeNow_MVC_Application.Controllers
 		public IActionResult MyApplications(Guid? selectedJobId = null)
 		{
 			var uid = HttpContext.Session.GetString("UserId");
-			//List<Job> jobs = _userService.GetAppliedJobs(new Guid(uid));
 			List<Application> jobs=_applicationService.GetAll(new Guid(uid));
 
 			Job selectedJob = new Job();
@@ -84,8 +80,7 @@ namespace HireMeNow_MVC_Application.Controllers
             var uid = HttpContext.Session.GetString("UserId");
             User user = _userService.GetById(new Guid(uid));
             user.About= updateUser.About??user.About;
-            //user.Skill= updateUser.About??user.About;
-            //user.About= updateUser.About??user.About;
+           
 
             if (updateUser.Skill !=null){
 				user.Skills.Add(updateUser.Skill);

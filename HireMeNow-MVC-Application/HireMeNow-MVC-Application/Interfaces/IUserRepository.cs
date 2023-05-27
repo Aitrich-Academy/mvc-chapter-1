@@ -23,5 +23,6 @@ namespace HireMeNow_MVC_Application.Interfaces
 		public bool ApplyJob(Guid jobId, Guid userId);
 		List<Guid> getAppliedJobs(Guid userId);
 		public User updateUserProfile(User updatedUser);
-	}
+        public List<User> JobSeekerListing();
+    }
 }

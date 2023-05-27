@@ -12,6 +12,21 @@
 		public string? Vision { get; set; }
 		public string? Mission { get; set; }
 		public string? Location { get; set; }
-		public Company() { }
-	}
+        public string? Address { get; set; }
+        public Company() { }
+
+        public Company(string name, string email, string website, string phone, string? image, string? about, string? vision, string? mission, string? location,Guid? id=null)
+        {
+            Name=name;
+            Email=email;
+            Website=website;
+            Phone=phone;
+            Image=image;
+            About=about;
+            Vision=vision;
+            Mission=mission;
+            Location=location;
+            Id=id??Guid.NewGuid();
+        }
+    }
 }

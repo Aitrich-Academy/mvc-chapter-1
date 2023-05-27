@@ -26,7 +26,7 @@ namespace HireMeNow_MVC_Application.Models
         public string ConfirmPassword { get; set; }
         public Roles Role { get; set; }
         public User() { }
-        public User( string firstname, string lastname, string email, long phone, string password, Roles roles)
+        public User( string firstname, string lastname, string email, long phone, string password, Roles roles,Guid? companyid=null)
         {
             Id =  Guid.NewGuid();
             FirstName = firstname;
@@ -35,6 +35,7 @@ namespace HireMeNow_MVC_Application.Models
             Phone = phone;
             Password = password;
             Role = roles;
+            companyId=companyid;
         }
     }
 }

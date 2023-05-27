@@ -1,5 +1,6 @@
 ﻿using HireMeNow_MVC_Application.Interfaces;
 using HireMeNow_MVC_Application.Models;
+using HireMeNow_MVC_Application.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,23 +10,14 @@ namespace HireMeNow_MVC_Application.Controllers
     {
         //private readonly IPublicService _publicService;
 		private readonly ICompanyServices _companyService;
-		//public CompanyController(IPublicService publicService)
-  //      {
-  //          _publicService = publicService;
-
-		//}
-        public CompanyController(ICompanyServices companyServices) 
+        IUserService _userService;
+     
+        public CompanyController(ICompanyServices companyServices, IUserService userService) 
         {
             _companyService= companyServices;
+            _userService= userService;
         }
         // GET: CompanyController
-      
-
-        // GET: CompanyController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
         public IActionResult MemberRegister()
         {
@@ -67,46 +59,31 @@ namespace HireMeNow_MVC_Application.Controllers
             }
         }
 
-        // GET: CompanyController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Profile()
         {
-            return View();
-        }
 
-        // POST: CompanyController/Edit/5
+            var uid = HttpContext.Session.GetString("UserId");
+            User user = _userService.GetById(new Guid(uid));
+            Company company = new Company();
+            if (user.companyId!=null)
+            {
+                company = _companyService.GetCompanyById(user.companyId.Value);
+
+            }
+            return View(company);
+        }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Profile(Company updatedCompany)
         {
-            try
+
+            if (updatedCompany.Id!=null)
             {
-                return RedirectToAction(nameof(Index));
+                updatedCompany = _companyService.Update(updatedCompany);
+
             }
-            catch
-            {
-                return View();
-            }
+            return View(updatedCompany);
         }
 
-        // GET: CompanyController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: CompanyController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

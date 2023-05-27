@@ -9,7 +9,12 @@ namespace HireMeNow_MVC_Application.Controllers
     public class AdminController : Controller
     {
 		private readonly IAdminService _adminService;
-        string uid;
+		private readonly IJobService _jobService;
+		public AdminController(IJobService jobService)
+		{
+			_jobService = jobService;
+		}
+		string uid;
         public AdminController(IAdminService adminService)
         {
             _adminService = adminService;
@@ -84,10 +89,27 @@ namespace HireMeNow_MVC_Application.Controllers
 				return View();
 			}
 		}
+		public IActionResult JobList()
+		{
+			List<Job> joblist = _jobService.GetJobs();
+			return View("joblist");
+		}
+        public ActionResult JobSeekerListing()
+        {
+            try
+            {
+                List<User> jobseekers = _adminService.JobSeekerListing();
 
+                return View(jobseekers);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+        }
 
-	}
+    }
 
 
 }

@@ -1,0 +1,205 @@
+﻿@model HireMeNow_MVC_Application.Models.Company
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
+}
+
+<style>
+    .personal-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .proImg {
+        margin-left: 25%;
+    }
+
+    .aboutMeDiv {
+        min-width: 420px;
+       /* padding: 35px;*/
+    }
+
+    .btnSaveChanges {
+        display: none;
+    }
+
+    .aboutMeTxtDiv {
+        min-width: 350px;
+        padding: 5px;
+        min-height: 150px;
+        display: none;
+        /*width: 401px;*/
+    }
+
+    .skillsDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .skill {
+        display: none;
+    }
+
+    .experienceDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .experience-form {
+        display: none;
+    }
+
+    .educationDiv {
+        min-width: 350px;
+        min-height: 100px;
+    }
+
+    .education-form {
+        display: none;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .aboutMeContentDiv {
+        width:90%;
+    }
+
+    .content-div{
+        width:100%;
+    }
+
+    .wrapper-div{
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+</style>
+
+<script>
+    function MakeEditable(id) {
+      
+        var textarea = document.getElementById(id);
+       
+
+        // Set the readonly attribute
+        textarea.readOnly = !textarea.readOnly;
+    }
+</script>
+
+<form method="post" id="profileForm">
+    <div id="content " class="p-4 p-md-5 wrapper-div">
+        <div class="row content-div">
+            <div class="col-md-6 personal-details">
+
+                <div>
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right"  />
+                    <div class="firstDiv">
+                        @if (Model.Image==null)
+                        {
+                            <img src="~/publicassets/images/gray-user.png" width="100px" alt="" class="proImg" />
+                        }
+                        else
+                        {
+                            <img src="@Url.Content("~/Uploads/"+Model.Image)" width="100px" alt="" class="proImg">
+                        }
+
+                        <font size="4" face="verdana" color="black" align="center">
+
+                            <center>  <b> @Model?.Name </b></center>
+
+                        </font>
+                        @* <em>@Model.Designation</em>*@ <br>
+                    </div>
+
+
+                    @* <h3><img src="~/jobseekerassets/images/resume.png" width="25px" alt="Resume "> RESUME </h3>*@
+                    <font size="4" face="math" color="black" align="center">
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Website
+                        </i>
+                        <br>
+                        <i>
+                            <img src="~/jobseekerassets/images/mail.png" width="20px" alt="mail ">
+                            @Model?.Email
+                        </i>
+                        <br>
+
+                        <i>
+                            <img src="~/jobseekerassets/images/phone.png" width="20px" alt="phone ">
+                            @Model?.Phone
+                        </i><br>
+                        <i>
+                            <img src="~/jobseekerassets/images/location.png" width="20px" alt="location ">  @Model?.Location
+                        </i><br>
+
+                    </font>
+                </div>
+                <div class="aboutMeDiv" >
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="MakeEditable('aboutMeContentTextarea')" />
+                    <h4> <img src="~/jobseekerassets/images/user.png" width="25px"> About Company </h4>
+
+                    <font size="3" face="math" color="black" align="justify-content-center">
+
+
+                        <blockquote>
+                            <textarea rows="5" id="aboutMeContentTextarea" class="aboutMeContentDiv" placeholder="About Company" asp-for="About" readonly> @Model.About  </textarea>
+                           @* <div class="aboutMeContentDiv" id="aboutMeContentDiv">
+                                @Model?.About
+                            </div>*@
+                        </blockquote>
+                    </font>
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="skillsDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="MakeEditable('visionTextarea')" />
+                    <h4 align="left"><img src="~/jobseekerassets/images/bulb.png" width="25px"> Vision</h4>
+                    <blockquote>
+                        <textarea rows="5" id="visionTextarea" class="aboutMeContentDiv" placeholder="Vision" asp-for="Vision" readonly> @Model.Vision  </textarea>
+
+
+                    </blockquote>
+                </div>
+
+                <div class="educationDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="MakeEditable('missionTextarea')" />
+
+                    <h4 align="left">
+                        <img src="~/jobseekerassets/images/graduation.png" width="25px"> Mission
+                    </h4>
+                    <blockquote>
+                        <textarea rows="5" id="missionTextarea" class="aboutMeContentDiv" placeholder="Mission" asp-for="Mission" readonly> @Model.Mission  </textarea>
+
+                    </blockquote>
+                </div>
+                <div class="experienceDiv">
+                    <img src="~/jobseekerassets/images/edit-2.png" width="15px" align="right" onclick="MakeEditable('contactTextarea')" />
+                    <h4 align="left"> <img src="~/jobseekerassets/images/job.png" width="25px"> Contact Details</h4>
+                    <blockquote>
+                        <textarea rows="5" id="contactTextarea" class="aboutMeContentDiv" placeholder=" Contact Details" asp-for="Address" readonly> @Model.Address  </textarea>
+
+                    </blockquote>
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-primary" style="width: 250px;">Update</button>
+        <input type="hidden" asp-for="Id" name="Id" value="@Model.Id" />
+    </div>
+</form>

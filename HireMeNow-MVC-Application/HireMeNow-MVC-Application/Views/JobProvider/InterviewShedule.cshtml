@@ -2,8 +2,9 @@
 
 @{
     ViewData["Title"] = "InterviewShedule";
-	//Layout = "_PubLayout";
+	Layout = "_PubLayout";
 }
+
 
 
 	<div class="container-fluid">
@@ -51,19 +52,19 @@
 					 <div class="col-md-11 mt-5  border-bottom pb-4 ">
 						 <!-- <img class="img-fluid float-right m-2 pt-4" src="~/asset/images/arrow-down.png"> -->
 						 <!-- <span class="float-right pt-3 m-2"><strong>Olivia</strong></span> -->
-						 <select class="form-select border-0 float-right  mt-4" aria-label="Default select example">
+					<select class="form-select border-0 float-right  mt-4" style="float:right;width: 100px;" aria-label="Default select example">
 							<option selected><strong>Olivia</strong></option>
 
 							</select>
-						 <img class="img-fluid float-right" src="~/JobProvider/InterviewShedule/images/cheerful-curly-business-girl-wearing-glasses 2.png">
-						 <img class="img-fluid float-right pt-2 m-2 " src="~/JobProvider/InterviewShedule/images/Group 5689.png" width="30" height="30">
+						 <img class="img-fluid float-right" style="float:right" src="~/JobProvider/InterviewShedule/images/cheerful-curly-business-girl-wearing-glasses 2.png">
+					<img class="img-fluid float-right pt-2 m-2 " style="float:right" src="~/JobProvider/InterviewShedule/images/Group 5689.png" width="30" height="30">
 					 </div>
 				 </div>
 				 <div class="row">
 					 <div class="col-md-11 shadow-sm">
 						 <div class="row">
-							 <div class="col-md-11">
-								 <h3 class="h3-default text-right mr-5 ">Short List</h3>
+							 <div class="col-md-11"  style="float:left;">
+								 <h3 class="h3-default text-right mr-5 " style="float:right;">Short List</h3>
 							 </div>
 						 </div>
 						<div class="row">
@@ -75,17 +76,17 @@
 									</div>
 									<div class="form-group text-dark p-1">
 										<label for="Date"><h4>Date</h4></label>
-										<img class="img-fluid float-right" src="~/JobProvider/InterviewShedule/images/calendar (4) 1.png">
-										<input asp-for="Date" type="text" id="datepicker" name="date" placeholder="Select Date" class="form-control bg-light p-4 border-0 rounded w-75 "required="">
+										<img class="img-fluid float-right"   style="float:right" src="~/JobProvider/InterviewShedule/images/calendar (4) 1.png">
+										<input asp-for="Date" type="date" id="datepicker" name="date" placeholder="Select Date" class="form-control bg-light p-4 border-0 rounded w-75 "required="">
 									</div>
 									<div class="form-group text-dark p-1">
 										<label for="Time"><h4>Time</h4></label>
-										<img class="img-fluid float-right" src="~/JobProvider/InterviewShedule/images/clock 1.png">
-										<input asp-for="Time" type="text" name="time" placeholder=" Enter time" class="form-control bg-light p-4 border-0 rounded w-75"required="">
+									<img class="img-fluid float-right" style="float:right" src="~/JobProvider/InterviewShedule/images/clock 1.png">
+										<input asp-for="Time" type="time" name="time" placeholder=" Enter time" class="form-control bg-light p-4 border-0 rounded w-75"required="">
 									</div>
 									<div class="form-group text-dark p-2">
 										<label for="Location"><h4>Location</h4></label>
-										<img class="img-fluid float-right" src="~/JobProvider/InterviewShedule/images/location 1.png">
+									<img class="img-fluid float-right" style="float:right" src="~/JobProvider/InterviewShedule/images/location 1.png">
 										<input asp-for="Location" type="text" name="location" placeholder="Enter location" class="form-control bg-light p-4 border-0 rounded mb-5 w-75"required="">
 									</div>
 									<p> @TempData["msg"] </p>
@@ -104,7 +105,7 @@
 			 </div>
 		 </div>
 	 </div>
-<
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

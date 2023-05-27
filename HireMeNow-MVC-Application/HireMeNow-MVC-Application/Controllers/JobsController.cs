@@ -15,6 +15,7 @@ namespace HireMeNow_MVC_Application.Controllers
         {
             return View(_jobService.GetJobs());
         }
+
 		public IActionResult PostJob()
 		{
 			return View();
@@ -39,5 +40,6 @@ namespace HireMeNow_MVC_Application.Controllers
 
 			return RedirectToAction("JobLists");
 	}
+
 	}
 }
