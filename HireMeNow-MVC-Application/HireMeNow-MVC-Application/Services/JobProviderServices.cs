@@ -14,11 +14,16 @@ namespace HireMeNow_MVC_Application.Services
 		{
             jobProviderRepository = _jobProviderRepository;
 		}
+		public List<Interview> sheduledinterviewlist()
+		{
+			return jobProviderRepository.SheduledInterviewList();
+		}
 
-	
-	
 
-        public bool SheduleInterview(Interview interview)
+
+
+
+		public bool SheduleInterview(Interview interview)
         {
             try
             {

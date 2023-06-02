@@ -6,5 +6,7 @@ namespace HireMeNow_MVC_Application.Interfaces
 	{
 		public bool MemberRegister(User newCompanyMember);
 		public List<User> MemberListing();
-	}
+        Company GetCompanyById(Guid companyId);
+        Company Update(Company updatedCompany);
+    }
 }

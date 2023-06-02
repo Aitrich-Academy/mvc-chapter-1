@@ -8,5 +8,6 @@ namespace HireMeNow_MVC_Application.Interfaces
         User GetUserById(Guid uid);
         bool UpdateProfile(User updatedAdmin);
 		public User LoginAdmin(string email, string password);
-	}
+        List<User> JobSeekerListing();
+    }
 }
