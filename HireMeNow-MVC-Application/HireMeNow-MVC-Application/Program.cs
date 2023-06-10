@@ -25,6 +25,8 @@ builder.Services.AddScoped<IJobService, JobService>();
 
 builder.Services.AddSingleton<IApplicationRepository, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
+
+builder.Services.AddSingleton<ICompanyRepository, CompanyRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

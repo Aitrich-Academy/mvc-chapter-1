@@ -1,0 +1,550 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<link href="~/publicassets/css/homepagestyle.css" rel="stylesheet" />
+<div>
+
+    @*  Home Section *@
+    <div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="~/" class="img-fluid img1">
+                </div>
+            </div>
+            <div class="">
+
+                <div class="col-md-12 mainDiv">
+                    <div class=" ">
+                        <nav class="navbar navbar-expand-sm ms-5 ">
+                            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <h1 class="h1 fs-1">HireMe Now!</h1>
+                            <div class="navbar-collapse collapse" id="navbarText" style="">
+                                <ul class="nav navbar-nav  text-secondary h5 ">
+                                    <li class="active "><a href="#">Home</a></li>
+                                    <li><a href="#">Post A Job</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">Feature</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav ml-auto text-secondary h4 fw-bold">
+                                    <li><a href="~/public/login">Login</a></li>
+                                    <li><a href="~/public/Registration">SignIn</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div style="
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+">
+                        <div class="" style="
+    max-width: 450px;
+">
+                            <div class="title">
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <div class="sideTxt">
+                                <div style="width: 100%;color: #242D62;">
+                                    <h1 style="font-size: 44px;">The Best Place To Find Your Dream Company</h1>
+                                </div>
+                            </div>
+
+
+                            <div style="display: flex; justify-content: center; margin-top: 30px;">
+                                <div style="width: 100%;font-size: 18px;text-align: justify;color: #515B6F;">
+                                    Ideal platform for job seekers passionate about startups and seeking new career opportunities.
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 60px;">
+                                <input type="text" placeholder="Job title or Company" class="jobSearch">
+                                <button class="exploreBtn">Explore</button>
+                            </div>
+
+
+                            <div class="mt-4">
+                                <div style="text-align: center;">
+                                    <button class="greenBtn">
+                                        Land your Dream job
+                                    </button>
+                                    <button class="greenBtn">
+                                        Recruit the Perfect fit
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    @*  Category Section *@
+
+    <div>
+        <div class="col-md-12 exploreTxtDiv">
+            <h1 id="">Explore By Category</h1>
+            <h6 id="content2-heading2">
+                open the doors to endless career posibilities
+                <br>and find your dream job with ease.
+            </h6>
+        </div>
+
+        <div class="exploreWrapper">
+            <div class="explorerRow col-md-12">
+                <div class="content2-square1 col-md-2">
+                    <div>
+                        <img src="~/publicassets/home/logo (1).png"/>
+                    </div>
+                    <div class="logo-heading1">Development</div>
+                    <div class="logo-heading2">512 available jobs</div>
+                </div>
+                <div class="content2-square1 col-md-2">
+                    <div>
+                        <img src="~/publicassets/home/logo (2).png"/>
+                    </div>
+                    <div class="logo-heading1">Bussines</div>
+                    <div class="logo-heading2">223 available jobs</div>
+                </div>
+                <div class="content2-square1 col-md-2">
+                    <div>
+                        <img src="~/publicassets/home/logo (3).png">
+                    </div>
+                    <div class="logo-heading1">Data Analyst</div>
+                    <div class="logo-heading2">125 available jobs</div>
+                </div>
+                <div class="content2-square1 col-md-2">
+
+                    <div>
+                        <img src="~/publicassets/home/logo (4).png">
+                    </div>
+                    <div class="logo-heading1">Design</div>
+                    <div class="logo-heading2">400 available jobs</div>
+                </div>
+
+            </div>
+            <div class="explorerRow col-md-12">
+                <div class="content2-square1  col-md-2">
+                    <div>
+                        <img src="~/publicassets/home/logo (5).png">
+                    </div>
+                    <div class="logo-heading1">Finance</div>
+                    <div class="logo-heading2">49 available jobs</div>
+                </div>
+                <div class="content2-square1  col-md-2">
+                    <div>
+                        <img src="~/publicassets/home/logo (6).png">
+                    </div>
+                    <div class="logo-heading1">Human Resource</div>
+                    <div class="logo-heading2">116 available jobs</div>
+                </div>
+                <div class="content2-square1  col-md-2">
+                    <div>
+                        <img src="~/publicassets/home/logo (7).png">
+                    </div>
+                    <div class="logo-heading1">Content Writing</div>
+                    <div class="logo-heading2">323 available jobs</div>
+                </div>
+                <div class="content2-square1 bg-gradientDiv  col-md-2">
+                    <div style=" ">
+                        <span style="color: white;font-size: 20px;">Explore<br>More 32+<br>Companies</span>
+                    </div>
+                    <img style="" src="publicassets/home/arrow.png">
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+
+    @*Job Alerts Section *@
+
+
+    <div class="content3">
+        <div class="flexDiv">
+            <div class="col-md-5">
+                <div class="dot2">
+                    <img style="" src="publicassets/home/Decoration.png">
+                </div>
+                <div class="leftWrapperDiv"></div>
+                <div class="leftHandImageDiv">
+                    <div class="job-alert">
+                        <img style="left:32.08px;" src="publicassets/home/check-circle.png">
+                        <h6>Job Alert!</h6>
+                        <span style="color: #6D7394;">104 job openings<br> avilable, don't<br> waste time</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5" style="">
+                <h6 style="font-size: 44px; color:#242D62;margin-top: 2px;line-height: 120%;">
+                    Help You Find A
+                    Job<br>That Suits You
+                </h6>
+                <div class="TrustedAndAccucrate">
+                    <div class="ta-img"><img src="~/publicassets/home/blue-building.png"></div>
+                    <div class="ta-details">
+                        <h5>Trusted and Accurate</h5>
+                        <p style="
+    width: max-content;
+    ">Trust us to help you find your perfect job with<br> our accurate job listing and reliable job portal.</p>
+                    </div>
+                </div>
+                <div class="TrustedAndAccucrate">
+                    <div class="ta-img"><img src="~/publicassets/home/blue-briefcase.png"></div>
+                    <div class="ta-details">
+                        <h5>Hired By Top Companies</h5>
+                        <p>Get one step closerto your career goals and<br> be employed by the best</p>
+                    </div>
+                </div>
+                <div class="TrustedAndAccucrate">
+                    <div class="ta-img"><img src="~/publicassets/home/blue-right.png"></div>
+                    <div class="ta-details">
+                        <h5>Various Categories</h5>
+                        <p>Discover exciting career opportunities across a <br>wide range of industries</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @*
+    Popular Jobs*@
+    <div class="popular-jobs">
+        <h1>Recentely Popular Jobs</h1>
+        <p class="description">Open the doors to endless career posibilities and find your dream job with ease.</p>
+
+        <div class="jobsContainer ">
+
+            <div class="jobsFlexDiv col-md-10">
+
+                <div class="job-item col-md-3">
+                    <div class="item-header">
+                        <img src="~/publicassets/home/Frame 1368.png" align="left">
+                        <b>Google</b>
+                        <p class="job-type">Development</p>
+
+
+
+                    </div>
+                    <h4>Front End Dev</h4>
+                    <div class="row2">
+
+                        <div class="full-width"> <img src="~/publicassets/home/location-marker.png" align="middle"><p>New York</p> </div>
+
+                        <div class="full-width"><img src="~/publicassets/home/clock.png" align="middle"><p>Part-Time</p> </div>
+
+                    </div>
+                    <hr />
+
+                    <p class="job-description"> responsible for implementing visual elements that users see and interact with in a web application</p>
+
+                </div>
+
+                <div class="job-item col-md-3">
+                    <div class="item-header">
+                        <img src="~/publicassets/home/microsoftLogo.png" align="left">
+                        <b>Microsoft</b>
+                        <p class="job-type finance">Finance</p>
+
+
+
+                    </div>
+                    <h4>Accountant</h4>
+                    <div class="row2">
+
+                        <div class="full-width"> <img src="~/publicassets/home/location-marker.png" align="middle"><p>Minneapolis</p> </div>
+
+                        <div class="full-width"><img src="~/publicassets/home/clock.png" align="middle"><p>Part-Time</p> </div>
+
+                    </div>
+                    <hr />
+
+                    <p class="job-description"> responsible for implementing visual elements that users see and interact with in a web application</p>
+
+                </div>
+
+                <div class="job-item col-md-3">
+                    <div class="item-header">
+                        <img src="~/publicassets/home/Slack.png" align="left">
+                        <b>Slack</b>
+                        <p class="job-type design">Design</p>
+
+
+
+                    </div>
+                    <h4>Product Designer</h4>
+                    <div class="row2">
+
+                        <div class="full-width"> <img src="~/publicassets/home/location-marker.png" align="middle"><p>California</p> </div>
+
+                        <div class="full-width"><img src="~/publicassets/home/clock.png" align="middle"><p>Full-Time</p> </div>
+
+                    </div>
+                    <hr />
+
+                    <p class="job-description"> responsible for implementing visual elements that users see and interact with in a web application</p>
+
+                </div>
+
+                <div class="job-item col-md-3">
+                    <div class="item-header">
+                        <img src="~/publicassets/home/Slack.png" align="left">
+                        <b>Slack</b>
+                        <p class="job-type ContentWriter">Content Writer</p>
+
+
+
+                    </div>
+                    <h4>Copywriter</h4>
+                    <div class="row2">
+
+                        <div class="full-width"> <img src="~/publicassets/home/location-marker.png" align="middle"><p>New York</p> </div>
+
+                        <div class="full-width"><img src="~/publicassets/home/clock.png" align="middle"><p>Part-Time</p> </div>
+
+                    </div>
+                    <hr />
+
+                    <p class="job-description"> responsible for implementing visual elements that users see and interact with in a web application</p>
+
+                </div>
+                <div class="job-item col-md-3">
+                    <div class="item-header">
+                        <img src="~/publicassets/home/Frame 1368.png" align="left">
+                        <b>Google</b>
+                        <p class="job-type design">Design</p>
+
+
+
+                    </div>
+                    <h4>Graphic Designer</h4>
+                    <div class="row2">
+
+                        <div class="full-width"> <img src="~/publicassets/home/location-marker.png" align="middle"><p>New York</p> </div>
+
+                        <div class="full-width"><img src="~/publicassets/home/clock.png" align="middle"><p>Part-Time</p> </div>
+
+                    </div>
+                    <hr />
+
+                    <p class="job-description"> responsible for implementing visual elements that users see and interact with in a web application</p>
+
+                </div>
+                <div class="job-item col-md-3">
+                    <div class="item-header">
+                        <img src="~/publicassets/home/AirBnb.png" align="left">
+                        <b>Airbnb</b>
+                        <p class="job-type">Development</p>
+
+
+
+                    </div>
+                    <h4>Mobile Developer</h4>
+                    <div class="row2">
+
+                        <div class="full-width"> <img src="~/publicassets/home/location-marker.png" align="middle"><p>New York</p> </div>
+
+                        <div class="full-width"><img src="~/publicassets/home/clock.png" align="middle"><p>Part-Time</p> </div>
+
+                    </div>
+                    <hr />
+
+                    <p class="job-description"> responsible for implementing visual elements that users see and interact with in a web application</p>
+
+                </div>
+
+                <a href="~/jobs/index" class="btn btn-primary col-md-3" style="font-size: larger;">View All Jobs <img src="~/PublicAssets/home/arrow.png" /> </a>
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+    @*Get Hired*@
+    <div class="get-hired container-fluid">
+        <div class="row col-md-10">
+            <div class="col-md-6 hiredLeftDiv">
+                <h2>Get Hired by Compnay <br /> Around The World</h2>
+                <p>
+                    Discover global career opportunities and land
+                    your dream job anywhere in the world with
+                    our extensive job listings of top companies
+                </p>
+                <div class="content5-buttons">
+                    <button class="btn btn-primary p1">Apply Now!</button>
+                    <button class="btn btn-outline-primary p2">Learn More</button>
+                </div>
+            </div>
+            <div class="col-md-6 hiredRightDiv">
+            </div>
+        </div>
+    </div>
+
+
+
+    @*About Us*@
+    <div class="about-us pt-5 pb-5">
+        <h1 class="p-1">What Job Applicant Say About Us</h1>
+        <div class="col-md-10">
+            <div class="jobsFlexDiv">
+                <div class="about-item col-md-5">
+                    <div class="about-item-header">
+                        <div class="col-md-3">
+                            <img src="~/publicassets/home/Userpic (2).png" align="left">
+                        </div>
+
+                        <p class="col-md-9">
+                            I found my dream job through this job portal,the search filters made it easy
+                            to findrelevent jobs, and the application process was smooth and efficient.
+                        </p>
+                    </div>
+
+                    <div class="row2">
+                        <strong>ROBERT FOX</strong>
+                        <span class="workAt">Illustrator at Tockopedia</span>
+                    </div>
+                </div>
+
+                <div class="about-item col-md-5">
+                    <div class="about-item-header">
+                        <div class="col-md-3">
+                            <img src="~/publicassets/home/Image (1).png" align="left">
+                        </div>
+
+                        <p class="col-md-9">
+                            I was impressed with the quality of job listings on this job portal.
+                            The job descriptions were detailed and accurate, which helped me to narrow down mysearch
+                        </p>
+                    </div>
+
+                    <div class="row2">
+                        <strong>LESLIE ALEXANDER</strong>
+                        <span class="workAt">UI designer at Gojek</span>
+                    </div>
+                </div>
+
+                <div class="about-item col-md-5">
+                    <div class="about-item-header">
+                        <div class="col-md-3">
+                            <img src="~/publicassets/home/Userpic.png" align="left">
+                        </div>
+
+                        <p class="col-md-9">
+                            I had been struggling to find a job portal helped me find job opportunities,
+                            and I landed my current job within weeks of signing up.
+                            .
+                        </p>
+                    </div>
+
+                    <div class="row2">
+                        <strong>WILSON</strong>
+                        <span class="workAt">Mobile Developer at Airbnb</span>
+                    </div>
+                </div>
+
+                <div class="about-item col-md-5">
+                    <div class="about-item-header">
+                        <div class="col-md-3">
+                            <img src="~/publicassets/home/Image.png" align="left">
+                        </div>
+
+                        <p class="col-md-9">
+                            Thanks to this job, I was able to browse job listings from top companies
+                            and applyto my desired job with ease.
+                        </p>
+                    </div>
+
+                    <div class="row2">
+                        <strong>PAOLO DYBALA</strong><br>
+                        <span class="workAt">UX designer at Google</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @*Help Company*@
+
+    <div class="help container-fluid mb-2">
+        <br />
+        <div class="helpContainer col-md-10">
+            <div class="col-md-6 hiredLeftDiv">
+                <h2>
+                    Help Company To Get <br />
+                    The Best Talent
+                </h2>
+                <p>
+                    Discover global career opportunities and land
+                    your dream job anywhere in the world with
+                    our extensive job listings of top companies
+                </p>
+                <div class="content5-buttons">
+                    <button class="btn btn-primary p1">Post A Job!</button>
+                    <button class="btn btn-outline-primary p2">Learn More</button>
+                </div>
+            </div>
+            <div class="col-md-6 hiredRightDiv">
+            </div>
+        </div>
+    </div>
+
+
+    @* Footer Section *@
+
+    <div class="footerDiv about-us pt-5 pb-5">
+        <h1 class="p-1">Get Notified Every Job Now</h1>
+        <div class="col-md-12">
+            <div class="">
+                <div class="footerFlexDiv col-md-12">
+                    <div class="paraDiv col-md-6">
+                        <p class="">
+                            Ideal platform for job seekers passionate about startups and
+                            seeking new career opportunities
+                        </p>
+                    </div>
+
+
+                    <div class="col-md-6 subscribe mt-5">
+                        <input type="email" placeholder="Type Your Email Address">
+                        <button type="submit">Subscribe</button>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,95 +19,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js" integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
   <style>
-      body{
-            background-color: #F2F2F2;
-            
-        }
-    #sidebar{
-        background-color: #40189D;
-    }
-    #sidebar-div .nav .nav-item{
-            width: 100%;
-            position:relative;        
-           
-        } 
-        #sidebar-div .nav .nav-item:hover{
-            background-color: #F2F2F2;
-            color: black;   
-            border-top-left-radius: 25px; 
-            border-bottom-left-radius: 25px;             
-        } 
-        ul.nav .nav-item .nav-link, ul.nav .nav-item .nav-link:visited {
-            color: rgb(255, 255, 255) !important;            
-        }
-
-        ul.nav .nav-item .nav-link:hover, ul.nav .nav-item .nav-link:active {
-            color: rgb(0, 0, 0) !important;
-        }
-        .nav-item:hover::after  {
-            content: "";
-            position: absolute;
-            background-color: transparent;
-            bottom: 100%;
-            right: 0;
-            height: 100%;
-            width: 45px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 30px 0 0 #F2F2F2;
-          
-          }
-          .nav-item:hover::before  {
-            content: "";
-            position: absolute;
-            background-color: transparent;
-            top: 100%;
-            right: 0;
-            height: 100%;
-            width: 45px;
-            border-top-right-radius: 30px;
-            box-shadow: 0 -30px 0 0 #F2F2F2;
-          
-          }
-          #main-content::before  {
-            content: "";
-            position: absolute;
-            background-color: transparent;
-            top: 0%;
-            left: 16.7%;
-            height: 25%;
-            width: 50px;
-            border-top-left-radius: 30px;
-            box-shadow: 0px -30px 0 0px #40189D;
-          
-          }
-          .card{
-            color: #FFFFFF;
-          }
-          #innerform{
-            background-color: white;
-          }
-          input[type="email"],input[type="number"],input[type="text"]{
-
-            background-color: #F2F2F2;
-            color: #8D98AA;
-            border: 0;
-
-    }
-    button[type="submit"]{
-        background-color: #40189D;
-        color: #FFFFFF;
-        border-radius: 5px;
-      
-    }
-    #update-new-picture{
-        background-color: #F2F2F2;
-        color:#40189D;
-    }
-    #inputaccount{
-        color: #40189D;
-    }
+    
 </style>
-
+    <link href="~/adminimages/styles/adminstyle.css" rel="stylesheet" />
    <script src="~/scripts/main.js"></script>
 </head>
 <body>
@@ -115,7 +29,7 @@
             <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2  px-0 pt-3 " id="sidebar">
                 <img class="img-fluid mx-2"  src="~/adminimages/images/Group 8.png">
-                <img class="img-fluid ml-2"  src="~/adminimages/images/Jobie.png">
+                <img class="img-fluid ml-2 imgLogo" src="~/adminimages/images/Jobie.png">
                 <div class="d-flex flex-column  pt- text-white min-vh-100" id="sidebar-div">
                    
                     
@@ -137,18 +51,18 @@
                                 <span class="ms-4 d-none d-sm-inline">New Registrations</span></a>
                         </li>
                         <li  class="nav-item py-1">
-                            <a href="#" class="nav-link  px-0 align-middle link-light" >
+                            <a href="~/Admin/JobSeekerListing" class="nav-link  px-0 align-middle link-light">
                                 <i class="ms-3 fs-5  bi bi-search"></i>
                                 <span class="ms-4 d-none d-sm-inline">Job Seekers</span>
                             </a>                   
                         </li>
                         <li  class="nav-item py-1">
-                            <a href="#" class="nav-link px-0 align-middle link-light">
+                            <a href="~/Admin/JobList" class="nav-link px-0 align-middle link-light">
                                 <i class="ms-3 fs-5 bi-grid-fill"></i>
                                 <span class="ms-4 d-none d-sm-inline">Jobs</span></a>
                         </li>
                         <li  class="nav-item py-1">
-                            <a href="#" class="nav-link px-0 align-middle link-light">
+                            <a href="~/Admin/Edit" class="nav-link px-0 align-middle link-light">
                                 <i class="ms-3 fs-5 bi bi-person-fill"></i>
                                 <span class="ms-4 d-none d-sm-inline">My Profile</span> </a>
                         </li>
@@ -174,7 +88,9 @@
                     <div class="py-3 "></div>
                 </div>
             </div>
-    <div>
+            <div style="
+    flex-shrink: inherit;
+">
         @RenderBody()
     </div>
       </div>
