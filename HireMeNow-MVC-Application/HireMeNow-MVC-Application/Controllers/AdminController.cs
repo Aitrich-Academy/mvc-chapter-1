@@ -10,22 +10,22 @@ namespace HireMeNow_MVC_Application.Controllers
     {
 		private readonly IAdminService _adminService;
 		private readonly IJobService _jobService;
-		public AdminController(IJobService jobService)
+		public AdminController(IJobService jobService, IAdminService adminService)
 		{
 			_jobService = jobService;
-		}
-		string uid;
-        public AdminController(IAdminService adminService)
-        {
             _adminService = adminService;
         }
+		string uid;
+       
         public User loggedUser;
         public IActionResult Edit()
         {
             User user = _adminService.getLoggedUser();
             if (user.Email != null)
             {
+                return View(user);
                 uid = HttpContext.Session.GetString("UserId");
+
                 if (uid != null)
                 {
                     loggedUser = _adminService.GetUserById(new Guid(uid));
@@ -71,11 +71,11 @@ namespace HireMeNow_MVC_Application.Controllers
 
 			{
 				var result = _adminService.LoginAdmin(email, password);
-				if (result != null)
+				if (result != null && result?.Role==Enums.Roles.Admin)
 				{
 					TempData["msg"] = "logged successfully";
 					HttpContext.Session.SetString("UserID", result.Id.ToString());
-					return View();
+                    return RedirectToAction("JobList");
 				}
 				else
 				{
@@ -86,13 +86,14 @@ namespace HireMeNow_MVC_Application.Controllers
 			}
 			catch
 			{
-				return View();
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return View();
 			}
 		}
 		public IActionResult JobList()
 		{
 			List<Job> joblist = _jobService.GetJobs();
-			return View("joblist");
+			return View("joblist", joblist);
 		}
         public ActionResult JobSeekerListing()
         {

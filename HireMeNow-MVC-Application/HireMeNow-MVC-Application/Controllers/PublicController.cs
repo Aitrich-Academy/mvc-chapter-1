@@ -58,6 +58,7 @@ namespace HireMeNow_MVC_Application.Controllers
                 {
                     TempData["msg"] = "logged successfully";
                     HttpContext.Session.SetString("UserId", result.Id.ToString());
+                    ViewData["Role"]=result.Role.ToString();
                     return View("Registration");
                 }
                 else
@@ -80,50 +81,13 @@ namespace HireMeNow_MVC_Application.Controllers
 
 
 
-        // GET: PublicController/Create
-        public ActionResult Register()
+       
+     
+        public IActionResult Index()
         {
             return View();
         }
 
-        // POST: PublicController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(User collection)
-        {
-            try
-            {
-                _publicService.Register(collection);
-                return View();
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        // GET: PublicController/Edit/5
-
-
-        // GET: PublicController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PublicController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

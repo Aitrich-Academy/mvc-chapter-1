@@ -1,7 +1,10 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
+    if (ViewData["Role"]=="JobSeeker")
     Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
+    else
+        Layout = "~/Views/Shared/PostJob_Layout.cshtml";
 }
 
 <style>

@@ -1,6 +1,7 @@
 ﻿html, body {
     height: 100%;
 }
+
 body {
     background-image: url(../images/loginBackground.png);
     background-position: center;
@@ -64,6 +65,7 @@ body {
     /* align-content: center; */
     justify-content: center;
 }
+
 .rightDiv {
     background-position: center;
     background-image: url(/publicassets/images/loginpageimg.png);
@@ -77,7 +79,7 @@ body {
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
 }
-.errors{
-    color:red;
 
+.errors {
+    color: red;
 }
