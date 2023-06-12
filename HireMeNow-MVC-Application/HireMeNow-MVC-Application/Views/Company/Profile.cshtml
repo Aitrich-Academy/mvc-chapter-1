@@ -2,7 +2,10 @@
 
 @{
     ViewData["Title"] = "Profile";
+    if (ViewData["Role"]=="JobSeeker")
     Layout = "~/Views/Shared/_JobSeekerLayout.cshtml";
+    else
+    Layout = "PostJob_Layout";
 }
 
 <style>
@@ -98,6 +101,12 @@
         textarea.readOnly = !textarea.readOnly;
     }
 </script>
+  @if (Model==null)
+                        {
+<h1>No Company Added</h1>
+}
+else
+{
 
 <form method="post" id="profileForm">
     <div id="content " class="p-4 p-md-5 wrapper-div">
@@ -203,3 +212,6 @@
         <input type="hidden" asp-for="Id" name="Id" value="@Model.Id" />
     </div>
 </form>
+
+
+}

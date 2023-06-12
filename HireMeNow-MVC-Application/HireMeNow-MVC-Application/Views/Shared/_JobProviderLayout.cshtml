@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			@*<div class="col-md-2 bg-primary">
+				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+						<span class="navbar-toggler-icon bg-dark"></span>
+					</button>
+					<div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
+						<ul class="list-group text-white list-unstyled">
+							<li class="list-group-item border-0 bg-primary">
+								<div class="w-75 mt-5 pb-2 pt-2 bg-secondary rounded-circle">
+									<img class="img-fluid mx-auto d-block" src="~/JobProvider/SheduledInterviewList/images/cheerful-curly-business-girl-wearing-glasses 1.png" width="75" height="75">
+								</div>
+							</li>
+							<li>
+								<h4 class="h4-fluid text-center">Olivia<br>olivia@gmail.com</h4>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/SheduledInterviewList/images/dashboard 1.png">  Dash Board</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/SheduledInterviewList/images/suitcase 2.png">  Jobs</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/SheduledInterviewList/images/application (1) 1.png">  Applications</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/SheduledInterviewList/images/question (1) 1.png"> Interviews</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/SheduledInterviewList/images/message 1.png"> Messages</p>
+							</li>
+
+							<li class="list-group-item border-0 bg-primary">
+								<p><img src="~/JobProvider/SheduledInterviewList/images/settings 1.png">  Settings</p>
+							</li>
+							<li class="list-group-item border-0 bg-primary">
+								<img class="img-fluid" src="~/JobProvider/SheduledInterviewList/images/add-group (1) 1 (1).png"><br>
+								<span class="text-white">Add New</span>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>*@
+			<div class="col-md-10 bg-light">
+				@*<div class="row bg-white">
+					<div class="col-md-10 ">
+						<h4 class="h4-fluid mt-3 ">@ViewBag.Title</h4>
+
+					</div>
+					<div class="col-md-2 content-justify-right">
+						<img class="img-fluid " src="~/JobProvider/SheduledInterviewList/images/Group 5689.png">
+						<img class="img-fluid" src="~/JobProvider/SheduledInterviewList/images/Group 33999.png">
+					</div>
+				</div>*@
+				<div>
+					@RenderBody()
+				</div>
+			</div>
+		</div>
+		</div>
+
+</body>
+
+</html>

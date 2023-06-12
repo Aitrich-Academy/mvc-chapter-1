@@ -24,18 +24,18 @@ namespace HireMeNow_MVC_Application.Controllers
             if (user.Email != null)
             {
                 return View(user);
-                uid = HttpContext.Session.GetString("UserId");
+                //uid = HttpContext.Session.GetString("UserId");
 
-                if (uid != null)
-                {
-                    loggedUser = _adminService.GetUserById(new Guid(uid));
-                    return View(loggedUser);
-                }
-                else
-                {
-                    return RedirectToPage("Edit");
-                }
-                return View();
+                //if (uid != null)
+                //{
+                //    loggedUser = _adminService.GetUserById(new Guid(uid));
+                //    return View(loggedUser);
+                //}
+                //else
+                //{
+                //    return RedirectToPage("Edit");
+                //}
+                //return View();
             }
             //User adminToUpdate = adminList.FirstOrDefault(a => a.Email == Email);
 

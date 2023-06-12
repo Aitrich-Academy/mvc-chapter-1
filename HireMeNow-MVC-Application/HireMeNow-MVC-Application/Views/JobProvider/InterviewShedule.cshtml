@@ -2,71 +2,10 @@
 
 @{
     ViewData["Title"] = "InterviewShedule";
-	Layout = "_PubLayout";
+	Layout = "PostJob_Layout";
 }
 
 
-
-	<div class="container-fluid">
-		<div  class="row">
-			<div class="col-md-2 text-nowrap bg-primary">
-				<nav class="navbar  navbar-expand-md sidebar navbar-dark">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-						  <span class="navbar-toggler-icon bg-dark"></span>
-					  </button>
-					 <div class="collapse  navbar-collapse sidebar " id="collapsibleNavbar">
-						 <ul class="list-group text-white list-unstyled">
-							 <li class="list-group-item border-0 bg-primary pt-5 pb-5 ">
-								 <h4 class="h4-fluid">HireMe Now</h4>
-							 </li>
-
-							 <li class="list-group-item border-0 bg-primary">
-								 <p><img src="~/JobProvider/InterviewShedule/images/dashboard 1 (2).png" >  Dash Board</p>
-							 </li>
-							 <li class="list-group-item border-0 bg-primary">
-								 <p><img src="~/JobProvider/InterviewShedule/images/suitcase 2 (1).png" >  Jobs</p>
-							 </li>
-							<li class="list-group-item border-0 bg-primary">
-								 <p><img src="~/JobProvider/InterviewShedule/images/application (1) 1 (2).png">  Applications</p>
-							 </li>
-							   <li class="list-group-item border-0 bg-primary">
-								 <p><a class="nav-link text-white" asp-area="" asp-page="/SheduledInterview"><img src="~/JobProvider/InterviewShedule/images/question (1) 1 (2).png"> Interviews</a></p>
-							 </li>
-							 <li class="list-group-item border-0 bg-primary">
-								 <p><img src="~/JobProvider/InterviewShedule/images/message 1 (2).png" > Messages</p>
-							 </li>
-
-							<li class="list-group-item border-0 bg-primary">
-								 <p><img src="~/JobProvider/InterviewShedule/images/settings 1 (1).png">  Settings</p>
-							 </li>
-							<li class="list-group-item border-0 bg-primary">
-								<img class="img-fluid" src="~/JobProvider/InterviewShedule/images/add-group (1) 1 (2).png"><br>
-								<span class="text-white">Add New</span>
-							</li>
-						 </ul>
-					 </div>
-				 </nav>
-			 </div>
-			 <div class="col-md-10">
-				 <div class="row">
-					 <div class="col-md-11 mt-5  border-bottom pb-4 ">
-						 <!-- <img class="img-fluid float-right m-2 pt-4" src="~/asset/images/arrow-down.png"> -->
-						 <!-- <span class="float-right pt-3 m-2"><strong>Olivia</strong></span> -->
-					<select class="form-select border-0 float-right  mt-4" style="float:right;width: 100px;" aria-label="Default select example">
-							<option selected><strong>Olivia</strong></option>
-
-							</select>
-						 <img class="img-fluid float-right" style="float:right" src="~/JobProvider/InterviewShedule/images/cheerful-curly-business-girl-wearing-glasses 2.png">
-					<img class="img-fluid float-right pt-2 m-2 " style="float:right" src="~/JobProvider/InterviewShedule/images/Group 5689.png" width="30" height="30">
-					 </div>
-				 </div>
-				 <div class="row">
-					 <div class="col-md-11 shadow-sm">
-						 <div class="row">
-							 <div class="col-md-11"  style="float:left;">
-								 <h3 class="h3-default text-right mr-5 " style="float:right;">Short List</h3>
-							 </div>
-						 </div>
 						<div class="row">
 							 <div class="col-md-10 mx-auto d-block border-top ">
 								 <form method="post" >
@@ -100,13 +39,5 @@
 								</form>
 							 </div>
 						 </div>
-					 </div>
-				 </div>
-			 </div>
-		 </div>
-	 </div>
+					
 
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

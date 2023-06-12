@@ -354,6 +354,10 @@
 
 
    <div id="content" class="p-4 p-md-5">
+     @if (ViewData["Role"]!="JobSeeker"){
+        <a href="~/Company/Profile">Company Profile</a>
+     }
+  
         <div class="row">
             <div class="col-md-6 personal-details">
             <div id="DetailsView"></div>
