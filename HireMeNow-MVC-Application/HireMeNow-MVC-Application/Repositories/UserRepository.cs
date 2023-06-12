@@ -21,10 +21,10 @@ namespace HireMeNow_MVC_Application.Repositories
 
         private static User loggedUser = new User();
 
-        private List<User> users = new List<User> { new User( "jobprovider", "", "jobprovider@gmail.com", 123, "123", Roles.JobProvider),
-         new User( "manu", "", "manu@gmail.com", 123, "123", Roles.CompanyMember),
-         new User( "John  Cena", "", "john@gmail.com", 98565458, "123", Roles.JobSeeker), new User( "admin", "", "admin@gmail.com", 123, "123", Roles.Admin)};
-        private int nextId = 2;
+        private List<User> users = new List<User> { new User( "jobprovider", "", "jobprovider@gmail.com", 9877896541, "123", Roles.JobProvider,new Guid("2c8303fb-c1e1-4fa6-a2e1-272472b4beb5"),new Guid("ae32ba86-8e8d-4615-aa47-7387159e705d")),
+         new User( "Yadhu", "", "yadhu.aitrich@gmail.com", 123, "123", Roles.JobSeeker,null,new Guid("1d8303fb-c1e1-4fa6-a2e1-272472b2beb4")),
+         new User( "rs", "", "sad@gmail.com", 123, "123", Roles.CompanyMember,new Guid("1d8303fb-c1e1-4fa6-a2e1-272472b2beb4")),
+            new User( "admin", "", "admin@gmail.com", 123, "123", Roles.Admin)};
 
 
         public List<User> getAll()

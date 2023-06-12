@@ -26,7 +26,7 @@ namespace HireMeNow_MVC_Application.Controllers
 		{
 			_jobService.PostJob(job);
 			TempData["message"] = "Posted successfully";
-			return RedirectToAction("index");
+			return RedirectToAction("Joblists");
 		}
 		public IActionResult Joblists()
 		{

@@ -59,7 +59,9 @@ namespace HireMeNow_MVC_Application.Controllers
                     TempData["msg"] = "logged successfully";
                     HttpContext.Session.SetString("UserId", result.Id.ToString());
                     ViewData["Role"]=result.Role.ToString();
-                    return View("Registration");
+                    ViewBag.UserEmail=result.Email;
+
+					return RedirectToAction("Index","User");
                 }
                 else
                 {
